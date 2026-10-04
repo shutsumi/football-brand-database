@@ -22,7 +22,7 @@ const { brands } = Astro.props;
         {b.data.nameJa && <div class="card-ja">{b.data.nameJa}</div>}
         <div class="card-facts">
           <span>{countryLabel(b.data.country)}</span>
-          <span class="card-year">{b.data.founded ? `${b.data.founded}年` : '創業年不明'}</span>
+          <span class="card-year">{b.data.founded ? `${b.data.founded}年` : '創業年不明'}{b.data.closed && <small>–{b.data.closed}</small>}</span>
         </div>
       </a>
     </li>

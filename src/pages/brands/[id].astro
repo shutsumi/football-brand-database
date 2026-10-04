@@ -22,20 +22,21 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
 ---
 <Base
   title={d.nameJa ? `${d.nameEn}（${d.nameJa}）` : d.nameEn}
-  description={`${d.nameEn}${d.nameJa ? `（${d.nameJa}）` : ''}は${countryLabel(d.country).split(' ')[1]}のサッカーブランド${d.founded ? `。${d.founded}年創業` : ''}。`}
+  description={d.note ?? `${d.nameEn}${d.nameJa ? `（${d.nameJa}）` : ''}は${countryLabel(d.country).split(' ')[1]}のサッカーブランド${d.founded ? `。${d.founded}年創業` : ''}。`}
 >
   <div class="detail-logo logo-box">
     <Logo brand={brand} lazy={false} />
   </div>
   <h1>{d.nameEn}</h1>
   {d.nameJa && <p class="lead">{d.nameJa}</p>}
+  {d.note && <p class="brand-note">{d.note}</p>}
 
   <dl class="facts">
     <dt>国</dt>
     <dd><a href={`/countries/${d.country}/`}>{countryLabel(d.country)}</a></dd>
     {d.origin && <><dt>創業国</dt><dd><a href={`/countries/${d.origin}/`}>{countryLabel(d.origin)}</a></dd></>}
     <dt>創業</dt>
-    <dd>{d.founded ? <a href={`/timeline/`}>{d.founded}年</a> : '不明'}</dd>
+    <dd>{d.founded ? <a href={`/timeline/`}>{d.founded}年</a> : '不明'}{d.closed && `（${d.closed}年に閉業）`}</dd>
     {d.founders.length > 0 && <><dt>創業者</dt><dd>{d.founders.join('、')}</dd></>}
     {group && <><dt>グループ</dt><dd><a href={`/groups/${group.id}/`}>{group.data.nameEn}</a></dd></>}
     {d.officialUrl && (

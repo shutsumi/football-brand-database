@@ -120,3 +120,5 @@ h2 { font-size: 18px; margin: 32px 0 8px; padding-bottom: 4px; border-bottom: 1p
 .count-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .count-row .count { margin: 0; }
 .count-row select { font: inherit; font-size: 14px; color: var(--text); background: var(--bg); border: 1px solid var(--line); padding: 4px 6px; }
+.brand-note { margin: 0 0 20px; }
+.card-year small { font-weight: 400; color: var(--sub); }

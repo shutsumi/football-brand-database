@@ -44,6 +44,10 @@ const brands = defineCollection({
     // 所有する会社。確認できなければ書かない
     group: reference('groups').optional(),
     founded: z.number().int().optional(),
+    // 閉業・休眠した年（復活していれば書かない）
+    closed: z.number().int().optional(),
+    // 出典にもとづく短い説明（日本語、1〜2文）
+    note: z.string().optional(),
     founders: z.array(z.string()).default([]),
     // Wikimedia Commons に無ければ書かない（文字のロゴで代用する）
     logo: z.object({
