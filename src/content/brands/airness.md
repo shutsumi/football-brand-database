@@ -4,7 +4,7 @@ country: fr
 founded: 1999
 sports:
   - football
-officialUrl: "http://www.airness.fr/"
+officialUrl: "https://www.airness.com/"
 sources:
   - title: "Airness - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Airness"

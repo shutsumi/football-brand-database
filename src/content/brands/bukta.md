@@ -4,7 +4,6 @@ country: gb
 founded: 1879
 sports:
   - football
-officialUrl: "http://www.bukta.com/"
 sources:
   - title: "Bukta - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Bukta"

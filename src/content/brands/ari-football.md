@@ -4,7 +4,7 @@ country: th
 founded: 2009
 sports:
   - football
-officialUrl: "https://www.arifootball.com"
+officialUrl: "https://www.arionline.com/"
 sources:
   - title: "Ari Football - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Ari_Football"

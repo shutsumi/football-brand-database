@@ -4,6 +4,7 @@ country: in
 founded: 2014
 sports:
   - football
+officialUrl: "https://www.tyka.com/"
 sources:
   - title: "TYKA Sports - Wikipedia"
     url: "https://en.wikipedia.org/wiki/TYKA_Sports"

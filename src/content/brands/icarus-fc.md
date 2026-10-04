@@ -4,6 +4,7 @@ country: us
 founded: 2017
 sports:
   - football
+officialUrl: "https://icarusfc.com/"
 sources:
   - title: "Icarus FC - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Icarus_FC"

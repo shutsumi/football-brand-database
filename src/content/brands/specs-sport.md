@@ -4,6 +4,7 @@ country: id
 founded: 1994
 sports:
   - football
+officialUrl: "https://www.specs.id/"
 sources:
   - title: "SPECS Sport - Wikipedia"
     url: "https://en.wikipedia.org/wiki/SPECS_Sport"

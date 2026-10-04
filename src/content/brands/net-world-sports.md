@@ -4,6 +4,7 @@ country: gb
 founded: 2009
 sports:
   - football
+officialUrl: "https://www.networldsports.co.uk/"
 sources:
   - title: "Net World Sports - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Net_World_Sports"

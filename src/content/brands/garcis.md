@@ -4,7 +4,7 @@ country: mx
 founded: 1961
 sports:
   - football
-officialUrl: "http://www.garcis.com"
+officialUrl: "https://garcis.com/"
 sources:
   - title: "Garcis - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Garcis"

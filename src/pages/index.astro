@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import BrandGrid from '../components/BrandGrid.astro';
 import { getBrands, byFounded, decadeOf } from '../lib/brands';
-import { countries, countryIds } from '../lib/taxonomy';
+import { countries, countryIds, flag } from '../lib/taxonomy';
 
 const brands = (await getBrands()).sort(byFounded);
 const used = new Set(brands.map((b) => b.data.country));
@@ -29,7 +29,7 @@ const oldest = brands.find((b) => b.data.founded)!;
     <input id="q" type="search" placeholder="ブランド名で検索（例：ミズノ、Umbro）" aria-label="ブランド名で検索" />
     <select id="country" aria-label="国で絞り込み">
       <option value="">すべての国</option>
-      {countryOptions.map((c) => <option value={c.id}>{c.name}（{c.n}）</option>)}
+      {countryOptions.map((c) => <option value={c.id}>{flag(c.id)} {c.name}（{c.n}）</option>)}
     </select>
     <select id="decade" aria-label="創業年代で絞り込み">
       <option value="">すべての年代</option>

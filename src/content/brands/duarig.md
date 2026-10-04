@@ -4,7 +4,6 @@ country: fr
 founded: 1886
 sports:
   - football
-officialUrl: "http://www.duarig.fr/"
 sources:
   - title: "Duarig - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Duarig"

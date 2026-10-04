@@ -4,6 +4,7 @@ country: gb
 founded: 1864
 sports:
   - football
+officialUrl: "https://ggbussey.com/"
 sources:
   - title: "George G. Bussey & Co. - Wikipedia"
     url: "https://en.wikipedia.org/wiki/George_G._Bussey_%26_Co."

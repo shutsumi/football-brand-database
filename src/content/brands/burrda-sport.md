@@ -9,7 +9,6 @@ logo:
   author: "Burrda Sport"
 sports:
   - football
-officialUrl: "http://www.burrda.com"
 sources:
   - title: "Burrda Sport - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Burrda_Sport"

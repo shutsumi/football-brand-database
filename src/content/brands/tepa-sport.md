@@ -4,6 +4,7 @@ country: it
 founded: 1952
 sports:
   - football
+officialUrl: "https://tepasport.it/"
 sources:
   - title: "Tepa Sport - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Tepa_Sport"

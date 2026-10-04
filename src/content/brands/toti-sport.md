@@ -4,6 +4,7 @@ country: hu
 founded: 1989
 sports:
   - football
+officialUrl: "http://www.totisport.hu/"
 sources:
   - title: "Toti Sport - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Toti_Sport"

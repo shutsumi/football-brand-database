@@ -4,6 +4,7 @@ country: jp
 founded: 2016
 sports:
   - football
+officialUrl: "https://www.jogarbola.net/"
 sources:
   - title: "Jogarbola - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Jogarbola"

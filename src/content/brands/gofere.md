@@ -4,6 +4,7 @@ country: et
 founded: 2016
 sports:
   - football
+officialUrl: "https://goferesportswear.com/"
 sources:
   - title: "Gofere Sportswear - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Gofere_Sportswear"

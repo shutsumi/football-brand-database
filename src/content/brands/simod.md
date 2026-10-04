@@ -4,7 +4,6 @@ country: it
 founded: 1967
 sports:
   - football
-officialUrl: "http://www.simod.it"
 sources:
   - title: "Simod - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Simod"

@@ -10,7 +10,7 @@ logo:
   author: "Champion USA"
 sports:
   - football
-officialUrl: "https://www.champion.com.au/"
+officialUrl: "https://www.champion.com/"
 sources:
   - title: "Champion (sportswear) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Champion_%28sportswear%29"

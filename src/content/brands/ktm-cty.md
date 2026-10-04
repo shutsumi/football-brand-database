@@ -4,6 +4,7 @@ country: np
 founded: 2013
 sports:
   - football
+officialUrl: "https://www.ktmcty.com/"
 sources:
   - title: "KTM CTY - Wikipedia"
     url: "https://en.wikipedia.org/wiki/KTM_CTY"

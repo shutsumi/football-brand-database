@@ -10,7 +10,7 @@ logo:
   author: "Frasers Group plc"
 sports:
   - football
-officialUrl: "https://store.slazenger.com/"
+officialUrl: "https://www.slazenger.com/"
 sources:
   - title: "Slazenger - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Slazenger"

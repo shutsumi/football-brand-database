@@ -4,6 +4,7 @@ country: ir
 founded: 1987
 sports:
   - football
+officialUrl: "https://majidshop.ir/"
 sources:
   - title: "Merooj - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Merooj"

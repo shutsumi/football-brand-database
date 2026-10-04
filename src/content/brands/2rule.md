@@ -3,7 +3,7 @@ nameEn: "2Rule"
 country: hu
 sports:
   - football
-officialUrl: "https://2rule.com/"
+officialUrl: "https://2rule.hu/"
 sources:
   - title: "2Rule - Wikipedia"
     url: "https://en.wikipedia.org/wiki/2Rule"

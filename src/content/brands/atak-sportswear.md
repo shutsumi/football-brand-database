@@ -4,6 +4,7 @@ country: sk
 founded: 1991
 sports:
   - football
+officialUrl: "https://www.atak.sk/"
 sources:
   - title: "ATAK Sportswear - Wikipedia"
     url: "https://en.wikipedia.org/wiki/ATAK_Sportswear"

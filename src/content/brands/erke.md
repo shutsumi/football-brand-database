@@ -4,7 +4,7 @@ country: cn
 founded: 2000
 sports:
   - football
-officialUrl: "http://erke.com/"
+officialUrl: "https://www.erke.com/"
 sources:
   - title: "Erke (brand) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Erke_%28brand%29"

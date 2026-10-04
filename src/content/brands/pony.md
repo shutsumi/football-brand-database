@@ -10,7 +10,7 @@ logo:
   author: "Pony International"
 sports:
   - football
-officialUrl: "https://www.pony-international.com/"
+officialUrl: "https://pony.com/"
 sources:
   - title: "Pony (brand) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Pony_%28brand%29"

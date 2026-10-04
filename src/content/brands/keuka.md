@@ -9,7 +9,7 @@ logo:
   author: "Juliancames"
 sports:
   - football
-officialUrl: "http://www.keuka.mx"
+officialUrl: "https://www.keuka.com.mx/"
 sources:
   - title: "Keuka (brand) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Keuka_%28brand%29"

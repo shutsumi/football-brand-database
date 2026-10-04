@@ -9,7 +9,7 @@ logo:
   author: "Atlética"
 sports:
   - football
-officialUrl: "http://www.atletica.com/"
+officialUrl: "https://atletica.mx/"
 sources:
   - title: "Atletica - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Atletica"

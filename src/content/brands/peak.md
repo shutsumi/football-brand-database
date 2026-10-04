@@ -9,7 +9,7 @@ logo:
   author: "Juliancames"
 sports:
   - football
-officialUrl: "http://www.peaksport.net/"
+officialUrl: "https://www.peaksportshoes.com/"
 sources:
   - title: "Peak Sport Products - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Peak_Sport_Products"

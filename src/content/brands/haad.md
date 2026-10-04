@@ -3,6 +3,7 @@ nameEn: "Haad"
 country: ba
 sports:
   - football
+officialUrl: "https://haad.ba/"
 sources:
   - title: "Haad (company) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Haad_%28company%29"
