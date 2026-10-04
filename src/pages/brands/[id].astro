@@ -1,0 +1,73 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getBrands, countryName, sportName } from '../../lib/brands';
+
+export async function getStaticPaths() {
+  const brands = await getBrands();
+  return brands.map((brand) => ({ params: { id: brand.id }, props: { brand } }));
+}
+
+const { brand } = Astro.props;
+const d = brand.data;
+const { Content } = await render(brand);
+const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.updated.getDate()}日`;
+---
+<Base title={`${d.nameEn}（${d.nameJa}）`} description={`${d.nameJa}（${d.nameEn}）の歴史・名前の由来・主な契約選手。${d.nameOrigin}`}>
+  <div class="detail-logo logo-box">
+    <img src={d.logo.path} alt={`${d.nameEn} のロゴ`} />
+  </div>
+  <h1>{d.nameEn}</h1>
+  <p class="lead">{d.nameJa}</p>
+
+  <dl class="facts">
+    <dt>国</dt>
+    <dd><a href={`/countries/${d.country}/`}>{countryName(d.country)}</a></dd>
+    <dt>創業</dt>
+    <dd>{d.founded}年</dd>
+    <dt>創業者</dt>
+    <dd>{d.founders.join('、')}</dd>
+    <dt>公式サイト</dt>
+    <dd><a href={d.officialUrl} rel="noopener" target="_blank">{d.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
+  </dl>
+
+  <h2>名前の由来</h2>
+  <p>{d.nameOrigin}</p>
+
+  <h2>歴史</h2>
+  <div class="history"><Content /></div>
+
+  <h2>主な競技</h2>
+  <ul class="tags">
+    {d.sports.map((s) => <li><a href={`/sports/${s}/`}>{sportName(s)}</a></li>)}
+  </ul>
+
+  {d.athletes.length > 0 && (
+    <>
+      <h2>主な契約選手</h2>
+      <table class="athletes">
+        <thead><tr><th>選手</th><th>競技</th><th>国</th></tr></thead>
+        <tbody>
+          {d.athletes.map((a) => (
+            <tr>
+              <td><a href={a.source} rel="noopener" target="_blank">{a.name}</a></td>
+              <td>{sportName(a.sport)}</td>
+              <td>{a.country}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="muted">選手名のリンクは契約を報じた出典です。契約状況は変わることがあります。</p>
+    </>
+  )}
+
+  <h2>出典</h2>
+  <ul class="sources">
+    {d.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+    <li>
+      ロゴ：<a href={d.logo.source} rel="noopener" target="_blank">Wikimedia Commons</a>
+      （{d.logo.license}{d.logo.author && `／${d.logo.author}`}）
+    </li>
+  </ul>
+  <p class="muted">情報更新日：{updated}</p>
+</Base>

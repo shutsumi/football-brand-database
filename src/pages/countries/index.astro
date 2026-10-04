@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getBrands } from '../../lib/brands';
+import { countries } from '../../lib/taxonomy';
+
+const brands = await getBrands();
+const rows = Object.entries(countries)
+  .map(([id, name]) => ({ id, name, count: brands.filter((b) => b.data.country === id).length }))
+  .filter((r) => r.count > 0);
+---
+<Base title="国別一覧">
+  <h1>国別一覧</h1>
+  <p class="lead">ブランドが生まれた国から探す</p>
+  <ul class="index-list">
+    {rows.map((r) => <li><a href={`/countries/${r.id}/`}><span>{r.name}</span><span class="muted">{r.count}ブランド</span></a></li>)}
+  </ul>
+</Base>

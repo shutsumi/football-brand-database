@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import BrandGrid from '../components/BrandGrid.astro';
+import { getBrands } from '../lib/brands';
+import { countries, sports } from '../lib/taxonomy';
+
+const brands = await getBrands();
+// 掲載ブランドがある国・競技だけを選択肢に出す
+const usedCountries = Object.entries(countries).filter(([id]) => brands.some((b) => b.data.country === id));
+const usedSports = Object.entries(sports).filter(([id]) => brands.some((b) => (b.data.sports as string[]).includes(id)));
+---
+<Base>
+  <h1>スポーツブランド図鑑</h1>
+  <p class="lead">世界のスポーツブランドを、ロゴと出典つきで。</p>
+
+  <form class="filters" role="search" onsubmit="return false">
+    <input id="q" type="search" placeholder="ブランド名で検索（例：ナイキ、adidas）" aria-label="ブランド名で検索" />
+    <select id="country" aria-label="国で絞り込み">
+      <option value="">すべての国</option>
+      {usedCountries.map(([id, name]) => <option value={id}>{name}</option>)}
+    </select>
+    <select id="sport" aria-label="競技で絞り込み">
+      <option value="">すべての競技</option>
+      {usedSports.map(([id, name]) => <option value={id}>{name}</option>)}
+    </select>
+  </form>
+  <p class="count" id="count" aria-live="polite">{brands.length}件</p>
+
+  <BrandGrid brands={brands} />
+  <p class="empty" id="empty" hidden>該当するブランドがありません</p>
+</Base>
+
+<script>
+  const q = document.getElementById('q') as HTMLInputElement;
+  const country = document.getElementById('country') as HTMLSelectElement;
+  const sport = document.getElementById('sport') as HTMLSelectElement;
+  const count = document.getElementById('count')!;
+  const empty = document.getElementById('empty')!;
+  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#brand-grid > li'));
+
+  // カタカナ・ひらがなの違いを吸収する
+  const norm = (s: string) =>
+    s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+
+  function apply() {
+    const term = norm(q.value.trim());
+    let shown = 0;
+    for (const li of items) {
+      const ok =
+        (!term || norm(li.dataset.name ?? '').includes(term)) &&
+        (!country.value || li.dataset.country === country.value) &&
+        (!sport.value || (li.dataset.sports ?? '').split(' ').includes(sport.value));
+      li.hidden = !ok;
+      if (ok) shown++;
+    }
+    count.textContent = `${shown}件`;
+    empty.hidden = shown > 0;
+  }
+
+  q.addEventListener('input', apply);
+  country.addEventListener('change', apply);
+  sport.addEventListener('change', apply);
+  apply();
+</script>
