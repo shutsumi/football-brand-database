@@ -89,3 +89,29 @@ h2 { font-size: 18px; margin: 32px 0 8px; padding-bottom: 4px; border-bottom: 1p
 
 .site-footer { border-top: 1px solid var(--line); padding: 20px 0 32px; font-size: 12px; color: var(--sub); line-height: 1.7; }
 .site-footer p { margin: 0 0 6px; }
+
+/* ロゴ画像が無いときの文字ロゴ */
+.text-logo { font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: .04em; color: #545454; font-size: 18px; text-align: center; line-height: 1.2; }
+
+/* 売上高ランキング（メインビジュアル） */
+.ranking { margin: 8px 0 40px; }
+.ranking-title { margin-top: 0; }
+.ranking-list { list-style: none; padding: 0; margin: 0; }
+.ranking-row { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.ranking-head { display: flex; align-items: baseline; gap: 10px; }
+.rank { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 20px; min-width: 1.2em; }
+.ranking-group { font-weight: 700; text-decoration: none; flex: 1; line-height: 1.4; }
+.ranking-yen { font-family: 'Lato', 'Noto Sans JP', sans-serif; font-weight: 700; white-space: nowrap; }
+.bar { height: 4px; background: var(--bg-soft); margin: 6px 0 10px; }
+.bar span { display: block; height: 100%; background: var(--text); }
+.ranking-row:first-child .bar span { background: var(--accent); }
+.ranking-logos { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.ranking-logos a { text-decoration: none; display: flex; align-items: center; background: var(--logo-bg); padding: 4px 8px; border: 1px solid var(--line); max-width: 100%; }
+.ranking-logos a:hover { border-color: var(--accent); }
+.ranking-logos img { height: 100%; width: auto; max-width: 220px; object-fit: contain; }
+.ranking-logos .text-logo { font-size: 14px; }
+.other-brand { font-size: 13px; color: var(--sub); border: 1px dashed var(--line); padding: 2px 8px; }
+.ranking-note { margin-top: 10px; }
+
+/* グループ詳細 */
+.group-brands { margin-top: 8px; }

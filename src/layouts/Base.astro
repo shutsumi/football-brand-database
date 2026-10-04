@@ -5,7 +5,7 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title, description = '世界のスポーツブランドのロゴ・歴史・名前の由来・契約選手を、出典つきでまとめた図鑑。' } = Astro.props;
+const { title, description = '大手から無名のブランドまで、世界のスポーツブランドのロゴ・歴史・傘下グループ・契約選手を出典つきでまとめた図鑑。' } = Astro.props;
 const siteName = 'スポーツブランド図鑑';
 const fullTitle = title ? `${title}｜${siteName}` : siteName;
 ---
@@ -28,6 +28,7 @@ const fullTitle = title ? `${title}｜${siteName}` : siteName;
           <a href="/">すべて</a>
           <a href="/countries/">国別</a>
           <a href="/sports/">競技別</a>
+          <a href="/groups/">グループ</a>
         </nav>
       </div>
     </header>

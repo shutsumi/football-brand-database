@@ -2,6 +2,7 @@
 nameEn: adidas
 nameJa: アディダス
 country: de
+group: adidas-ag
 founded: 1949
 founders:
   - アドルフ（アディ）・ダスラー

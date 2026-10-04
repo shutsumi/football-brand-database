@@ -1,8 +1,34 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { countryIds, sportIds } from './lib/taxonomy';
+import { currencies } from './lib/fx';
 
+const source = z.object({ title: z.string(), url: z.url() });
+
+// ブランドを持つ会社（グループ）。独立系ブランドは会社そのものを1グループとして書く
+const groups = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/groups' }),
+  schema: z.object({
+    nameEn: z.string(),
+    nameJa: z.string(),
+    country: z.enum(countryIds),
+    // 連結売上高。非公開・未確認なら書かない（メインビジュアルで「売上非公開」に回る）
+    revenue: z.object({
+      amount: z.number().positive(), // 百万単位、決算資料の通貨のまま
+      currency: z.enum(currencies),
+      period: z.string(), // 例：2025年12月期
+      source: z.url(),
+    }).optional(),
+    // まだブランドページが無い傘下ブランドの名前
+    otherBrands: z.array(z.string()).default([]),
+    officialUrl: z.url(),
+    sources: z.array(source).min(1),
+    updated: z.coerce.date(),
+  }),
+});
+
+// マイナーブランドは分からない項目が多いので、確認できたものだけ書く
 const brands = defineCollection({
   // ファイル名（拡張子なし）がそのまま URL になる： nike.md → /brands/nike/
   loader: glob({ pattern: '*.md', base: './src/content/brands' }),
@@ -10,8 +36,11 @@ const brands = defineCollection({
     nameEn: z.string(),
     nameJa: z.string(),
     country: z.enum(countryIds),
-    founded: z.number().int(),
-    founders: z.array(z.string()).min(1),
+    // 所有する会社。確認できなければ書かない
+    group: reference('groups').optional(),
+    founded: z.number().int().optional(),
+    founders: z.array(z.string()).default([]),
+    // Wikimedia Commons に無ければ書かない（文字のロゴで代用する）
     logo: z.object({
       // public/ からのパス
       path: z.string().startsWith('/logos/'),
@@ -19,8 +48,8 @@ const brands = defineCollection({
       source: z.url(),
       license: z.string(),
       author: z.string().optional(),
-    }),
-    nameOrigin: z.string(),
+    }).optional(),
+    nameOrigin: z.string().optional(),
     sports: z.array(z.enum(sportIds)).min(1),
     athletes: z.array(z.object({
       name: z.string(),
@@ -30,9 +59,9 @@ const brands = defineCollection({
       source: z.url(),
     })).default([]),
     officialUrl: z.url(),
-    sources: z.array(z.object({ title: z.string(), url: z.url() })).min(1),
+    sources: z.array(source).min(1),
     updated: z.coerce.date(),
   }),
 });
 
-export const collections = { brands };
+export const collections = { brands, groups };

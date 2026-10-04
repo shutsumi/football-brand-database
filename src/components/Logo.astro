@@ -1,0 +1,14 @@
+---
+// ロゴ画像が無いブランドは、ブランド名を文字で組んで代わりにする
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  brand: CollectionEntry<'brands'>;
+  lazy?: boolean;
+}
+const { brand, lazy = true } = Astro.props;
+const { logo, nameEn } = brand.data;
+---
+{logo
+  ? <img src={logo.path} alt={`${nameEn} のロゴ`} loading={lazy ? 'lazy' : 'eager'} />
+  : <span class="text-logo" role="img" aria-label={nameEn}>{nameEn}</span>}

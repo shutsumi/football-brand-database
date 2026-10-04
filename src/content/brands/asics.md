@@ -2,6 +2,7 @@
 nameEn: ASICS
 nameJa: アシックス
 country: jp
+group: asics-corp
 founded: 1949
 founders:
   - 鬼塚喜八郎

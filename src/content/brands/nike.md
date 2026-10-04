@@ -2,6 +2,7 @@
 nameEn: Nike
 nameJa: ナイキ
 country: us
+group: nike-inc
 founded: 1964
 founders:
   - フィル・ナイト

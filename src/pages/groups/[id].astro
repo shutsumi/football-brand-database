@@ -1,0 +1,52 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BrandGrid from '../../components/BrandGrid.astro';
+import { getGroups, getBrands, groupYen, countryName } from '../../lib/brands';
+import { fx, formatYen, formatOriginal } from '../../lib/fx';
+
+export async function getStaticPaths() {
+  const [groups, brands] = await Promise.all([getGroups(), getBrands()]);
+  return groups.map((group) => ({
+    params: { id: group.id },
+    props: { group, brands: brands.filter((b) => b.data.group?.id === group.id) },
+  }));
+}
+
+const { group, brands } = Astro.props;
+const d = group.data;
+const { Content } = await render(group);
+const yen = groupYen(group);
+const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.updated.getDate()}日`;
+---
+<Base title={d.nameEn} description={`${d.nameEn}の傘下ブランドと売上高。`}>
+  <h1>{d.nameEn}</h1>
+  <p class="lead">{d.nameJa}</p>
+
+  <dl class="facts">
+    <dt>国</dt>
+    <dd><a href={`/countries/${d.country}/`}>{countryName(d.country)}</a></dd>
+    <dt>売上高</dt>
+    <dd>
+      {d.revenue && yen
+        ? <>{formatYen(yen)}<br /><span class="muted">{d.revenue.period}・{formatOriginal(d.revenue.amount, d.revenue.currency)}（<a href={d.revenue.source} rel="noopener" target="_blank">決算資料</a>）／円換算はECB参照レート {fx.date}</span></>
+        : '非公開'}
+    </dd>
+    <dt>公式サイト</dt>
+    <dd><a href={d.officialUrl} rel="noopener" target="_blank">{d.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
+  </dl>
+
+  <div class="history"><Content /></div>
+
+  <h2>傘下のブランド</h2>
+  {brands.length > 0 && <BrandGrid brands={brands} />}
+  {d.otherBrands.length > 0 && (
+    <p class="group-brands">ほかに：{d.otherBrands.join('、')} <span class="muted">（ページ準備中）</span></p>
+  )}
+
+  <h2>出典</h2>
+  <ul class="sources">
+    {d.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+  </ul>
+  <p class="muted">情報更新日：{updated}</p>
+</Base>

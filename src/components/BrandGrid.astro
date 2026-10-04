@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Logo from './Logo.astro';
 import { countryName } from '../lib/brands';
 
 interface Props {
@@ -15,11 +16,9 @@ const { brands } = Astro.props;
       data-sports={b.data.sports.join(' ')}
     >
       <a class="card" href={`/brands/${b.id}/`}>
-        <div class="logo-box">
-          <img src={b.data.logo.path} alt={`${b.data.nameEn} のロゴ`} loading="lazy" />
-        </div>
+        <div class="logo-box"><Logo brand={b} /></div>
         <div class="card-name">{b.data.nameEn}</div>
-        <div class="card-meta">{b.data.nameJa}・{countryName(b.data.country)}・{b.data.founded}年</div>
+        <div class="card-meta">{b.data.nameJa}・{countryName(b.data.country)}{b.data.founded && `・${b.data.founded}年`}</div>
       </a>
     </li>
   ))}

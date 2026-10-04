@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getGroups, getBrands, groupYen } from '../../lib/brands';
+import { formatYen } from '../../lib/fx';
+
+const [groups, brands] = await Promise.all([getGroups(), getBrands()]);
+// 売上高の大きい順。非公開は最後
+const rows = groups
+  .map((g) => ({ g, yen: groupYen(g), names: [...brands.filter((b) => b.data.group?.id === g.id).map((b) => b.data.nameEn), ...g.data.otherBrands] }))
+  .sort((a, b) => (b.yen ?? -1) - (a.yen ?? -1));
+---
+<Base title="グループ一覧">
+  <h1>グループ一覧</h1>
+  <p class="lead">どのブランドがどの会社の傘下か</p>
+  <ul class="index-list">
+    {rows.map((r) => (
+      <li>
+        <a href={`/groups/${r.g.id}/`}>
+          <span>{r.g.data.nameEn}<br /><span class="muted">{r.names.join('、')}</span></span>
+          <span class="muted">{r.yen ? formatYen(r.yen) : '売上非公開'}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

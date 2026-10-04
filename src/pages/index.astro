@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import BrandGrid from '../components/BrandGrid.astro';
+import RevenueRanking from '../components/RevenueRanking.astro';
 import { getBrands } from '../lib/brands';
 import { countries, sports } from '../lib/taxonomy';
 
@@ -11,7 +12,11 @@ const usedSports = Object.entries(sports).filter(([id]) => brands.some((b) => (b
 ---
 <Base>
   <h1>スポーツブランド図鑑</h1>
-  <p class="lead">世界のスポーツブランドを、ロゴと出典つきで。</p>
+  <p class="lead">巨人から、誰も知らないブランドまで。</p>
+
+  <RevenueRanking />
+
+  <h2>すべてのブランド</h2>
 
   <form class="filters" role="search" onsubmit="return false">
     <input id="q" type="search" placeholder="ブランド名で検索（例：ナイキ、adidas）" aria-label="ブランド名で検索" />

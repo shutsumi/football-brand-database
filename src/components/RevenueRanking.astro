@@ -1,0 +1,44 @@
+---
+// メインビジュアル：グループを売上高順に並べ、傘下のブランドのロゴを添える
+// バーの長さは売上高に比例、ロゴの大きさは売上高の平方根に比例（小さいブランドも見えるように下限あり）
+import Logo from './Logo.astro';
+import { getRanking } from '../lib/brands';
+import { fx, formatYen } from '../lib/fx';
+
+const { ranked, undisclosed } = await getRanking();
+const max = ranked[0]?.yen ?? 1;
+const logoH = (yen: number) => Math.round(28 + 52 * Math.sqrt(yen / max));
+---
+<section class="ranking" aria-labelledby="ranking-title">
+  <h2 id="ranking-title" class="ranking-title">売上高ランキング</h2>
+  <ol class="ranking-list">
+    {ranked.map((r, i) => (
+      <li class="ranking-row">
+        <div class="ranking-head">
+          <span class="rank">{i + 1}</span>
+          <a class="ranking-group" href={`/groups/${r.group.id}/`}>{r.group.data.nameEn}</a>
+          <span class="ranking-yen">{formatYen(r.yen)}</span>
+        </div>
+        <div class="bar"><span style={`width:${(r.yen / max) * 100}%`}></span></div>
+        <ul class="ranking-logos">
+          {r.brands.map((b) => (
+            <li><a href={`/brands/${b.id}/`} style={`height:${logoH(r.yen)}px`}><Logo brand={b} /></a></li>
+          ))}
+          {r.group.data.otherBrands.map((name) => <li class="other-brand">{name}</li>)}
+        </ul>
+      </li>
+    ))}
+  </ol>
+  {undisclosed.length > 0 && (
+    <div class="ranking-row">
+      <div class="ranking-head"><span class="rank">—</span><span class="ranking-group">売上非公開・不明</span></div>
+      <ul class="ranking-logos">
+        {undisclosed.map((b) => <li><a href={`/brands/${b.id}/`} style="height:28px"><Logo brand={b} /></a></li>)}
+      </ul>
+    </div>
+  )}
+  <p class="muted ranking-note">
+    各グループの直近の決算期の連結売上高。グループ全体の数字で、傘下ブランドの合計です。
+    円換算は欧州中央銀行の参照レート（{fx.date}）による。出典は各グループのページに記載。
+  </p>
+</section>
