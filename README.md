@@ -36,6 +36,16 @@ npm run build   # dist/ に出力
 - `country` は今の本拠地、創業国が違えば `origin` に書く（例：Athleta は日本、創業国はブラジル）
 - 親会社（グループ）は Wikidata だと過去の所有者が混ざるため、一括では入れていない
 
+## 追加調査（2026-10-04、114件）
+
+- 英語版Wikipediaだけでは漏れが多い（YASUDA・CAPITTEN・Dell'Erbaなどは記事がない）ため、方法を変えた
+- 起点：英語版Wikipediaの各国リーグのシーズン記事（約2,100件）の「Kit manufacturer」列から、ユニフォームを作ったブランド名を抽出。スポンサー企業は目視で除外
+- 日本：アグリナのブランド一覧などで国内ブランドを洗い出し
+- 1件ずつWeb検索で国・創業年・公式サイトを確認し、`note` に出典にもとづく短い説明を書いた
+- 資料によって創業年が割れるもの（例：DalPonte 1930/1932）は空欄にして、備考に両説を書く
+- 公式サイトはcurlとブラウザで開けることを確認。駐車ドメイン・スパム化・別会社のドメインは載せない
+- 調べたが国が確定できず見送った候補：Bang Sports、NT Sport、La Cabra、Devis、Siker、GEMS、Wunderelf、Gloria Sport、Brasimba、Svedda、Matute など
+
 ## 売上高（グループページだけ）
 
 トップからは外した。グループページ（`/groups/`）には Nike・adidas・ASICS の売上高が残っている。円換算は `src/lib/fx.ts` の ECB 参照レート。

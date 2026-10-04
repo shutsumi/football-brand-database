@@ -2,8 +2,7 @@
 nameEn: "DalPonte"
 nameJa: "ダウポンチ"
 country: br
-founded: 1930
-note: "1930年にブラジルでサッカーボール工場として創業。日本では2003年から販売。"
+note: "ブラジルでサッカーボール工場として創業（創業年は1930年・1932年の2説ある）。1981年から靴とウェアも作り、日本では2003年から販売。"
 sports:
   - football
 officialUrl: "https://www.dalponte.jp/"
