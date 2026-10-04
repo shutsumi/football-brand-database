@@ -12,7 +12,7 @@ const countryOptions = countryIds
   .map((id) => ({ id, name: countries[id], n: brands.filter((b) => b.data.country === id).length }))
   .sort((a, b) => b.n - a.n);
 const decades = [...new Set(brands.flatMap((b) => (b.data.founded ? [decadeOf(b.data.founded)] : [])))].sort();
-const oldest = brands.find((b) => b.data.founded)!;
+const oldest = brands.find((b) => b.data.founded);
 ---
 <Base>
   <div class="hero">
@@ -22,7 +22,7 @@ const oldest = brands.find((b) => b.data.founded)!;
   <div class="stats">
     <div><b>{brands.length}</b><span>ブランド</span></div>
     <div><b>{used.size}</b><span>か国</span></div>
-    <div><b>{oldest.data.founded}</b><span>最古（{oldest.data.nameEn}）</span></div>
+    {oldest && <div><b>{oldest.data.founded}</b><span>最古（{oldest.data.nameEn}）</span></div>}
   </div>
 
   <form class="filters" role="search" onsubmit="return false">

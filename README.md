@@ -10,6 +10,8 @@ npm run dev     # http://localhost:4321
 npm run build   # dist/ に出力
 ```
 
+**国（`src/lib/taxonomy.ts`）やデータの項目（`src/content.config.ts`）を変えたら、開発サーバーは `npm run dev:clean` で起動し直す。** 古いキャッシュのまま動いて、ブランドが読み込まれずトップページがエラーになる（本番ビルドは問題ない）。
+
 ## ブランドを追加する
 
 1. ロゴを Wikimedia Commons から `public/logos/<id>.svg` に保存する（ファイルページのURL・ライセンス・作者を控える）。Commons に無ければロゴは書かない（ブランド名の文字で代用表示される）
