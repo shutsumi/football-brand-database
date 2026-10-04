@@ -53,6 +53,12 @@ npm run build   # dist/ に出力
 - 国が確定できず見送った：DKALI、ZatOutfit、Tempo、SizzlingSport、Rada、Kapspor、SKIDAN、Casa Sportiva、Cikers、DJEVO、Arem Sports、Maxpro、Pindiz
 - 中東（カタール・イラク・ヨルダン・UAE・イスラエル）と東欧の多く（ルーマニア・ブルガリア・ジョージア・チェコ）は、リーグを海外ブランドが占めていて地元ブランドが見つからなかった
 
+## 中南米の残り（32件）
+
+- ボリビア・エルサルバドルは「地元ブランドが何クラブを着せているか」の新聞記事（Visión 360、Diario El Salvador）でブランドと都市を確認
+- コロンビアはLa Repúblicaの「made in Colombia」記事、チリ・ウルグアイ・中米は各ブランドの記事で確認
+- 見送った：Rete（チリのクラブが買ったイタリアのライセンスで国が曖昧）、ベネズエラ・カリブの地元ブランド（見つからず。ジャマイカはAdmiral、ドミニカ共和国はメキシコのSilver Sportが供給）
+
 ## 売上高（グループページだけ）
 
 トップからは外した。グループページ（`/groups/`）には Nike・adidas・ASICS の売上高が残っている。円換算は `src/lib/fx.ts` の ECB 参照レート。
