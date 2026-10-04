@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { getBrands, byFounded, decadeOf } from '../lib/brands';
+import { flag } from '../lib/taxonomy';
+
+const brands = (await getBrands()).sort(byFounded);
+const dated = brands.filter((b) => b.data.founded);
+const decades = [...new Set(dated.map((b) => decadeOf(b.data.founded!)))];
+const unknown = brands.filter((b) => !b.data.founded);
+---
+<Base title="創業年表" description="世界のサッカーブランドを創業年順に並べた年表。">
+  <h1>創業年表</h1>
+  <p class="lead">古いブランドから順に</p>
+  <ol class="timeline">
+    {decades.map((d) => {
+      const list = dated.filter((b) => decadeOf(b.data.founded!) === d);
+      return (
+        <li>
+          <div class="decade">{d}<small>{list.length}件</small></div>
+          <ul class="chips">
+            {list.map((b) => (
+              <li><a href={`/brands/${b.id}/`}><span class="y">{b.data.founded}</span>{flag(b.data.country)} {b.data.nameEn}</a></li>
+            ))}
+          </ul>
+        </li>
+      );
+    })}
+    {unknown.length > 0 && (
+      <li>
+        <div class="decade">不明<small>{unknown.length}件</small></div>
+        <ul class="chips">
+          {unknown.map((b) => <li><a href={`/brands/${b.id}/`}>{flag(b.data.country)} {b.data.nameEn}</a></li>)}
+        </ul>
+      </li>
+    )}
+  </ol>
+</Base>

@@ -1,69 +1,105 @@
 ---
 import Base from '../layouts/Base.astro';
 import BrandGrid from '../components/BrandGrid.astro';
-import RevenueRanking from '../components/RevenueRanking.astro';
-import { getBrands } from '../lib/brands';
-import { countries, sports } from '../lib/taxonomy';
+import { getBrands, byFounded, decadeOf } from '../lib/brands';
+import { countries, countryIds } from '../lib/taxonomy';
 
-const brands = await getBrands();
-// 掲載ブランドがある国・競技だけを選択肢に出す
-const usedCountries = Object.entries(countries).filter(([id]) => brands.some((b) => b.data.country === id));
-const usedSports = Object.entries(sports).filter(([id]) => brands.some((b) => (b.data.sports as string[]).includes(id)));
+const brands = (await getBrands()).sort(byFounded);
+const used = new Set(brands.map((b) => b.data.country));
+// 選択肢は掲載数の多い国から
+const countryOptions = countryIds
+  .filter((id) => used.has(id))
+  .map((id) => ({ id, name: countries[id], n: brands.filter((b) => b.data.country === id).length }))
+  .sort((a, b) => b.n - a.n);
+const decades = [...new Set(brands.flatMap((b) => (b.data.founded ? [decadeOf(b.data.founded)] : [])))].sort();
+const oldest = brands.find((b) => b.data.founded)!;
 ---
 <Base>
-  <h1>スポーツブランド図鑑</h1>
-  <p class="lead">巨人から、誰も知らないブランドまで。</p>
-
-  <RevenueRanking />
-
-  <h2>すべてのブランド</h2>
+  <div class="hero">
+    <h1>サッカーブランド図鑑</h1>
+    <p class="lead">世界のどこで、いつ生まれたブランドか。</p>
+  </div>
+  <div class="stats">
+    <div><b>{brands.length}</b><span>ブランド</span></div>
+    <div><b>{used.size}</b><span>か国</span></div>
+    <div><b>{oldest.data.founded}</b><span>最古（{oldest.data.nameEn}）</span></div>
+  </div>
 
   <form class="filters" role="search" onsubmit="return false">
-    <input id="q" type="search" placeholder="ブランド名で検索（例：ナイキ、adidas）" aria-label="ブランド名で検索" />
+    <input id="q" type="search" placeholder="ブランド名で検索（例：ミズノ、Umbro）" aria-label="ブランド名で検索" />
     <select id="country" aria-label="国で絞り込み">
       <option value="">すべての国</option>
-      {usedCountries.map(([id, name]) => <option value={id}>{name}</option>)}
+      {countryOptions.map((c) => <option value={c.id}>{c.name}（{c.n}）</option>)}
     </select>
-    <select id="sport" aria-label="競技で絞り込み">
-      <option value="">すべての競技</option>
-      {usedSports.map(([id, name]) => <option value={id}>{name}</option>)}
+    <select id="decade" aria-label="創業年代で絞り込み">
+      <option value="">すべての年代</option>
+      {decades.map((d) => <option value={d}>{d}年代</option>)}
+      <option value="unknown">創業年不明</option>
     </select>
   </form>
-  <p class="count" id="count" aria-live="polite">{brands.length}件</p>
+  <div class="count-row">
+    <p class="count" id="count" aria-live="polite">{brands.length}件</p>
+    <select id="sort" aria-label="並び順">
+      <option value="old">創業が古い順</option>
+      <option value="new">創業が新しい順</option>
+      <option value="name">名前順</option>
+    </select>
+  </div>
 
   <BrandGrid brands={brands} />
   <p class="empty" id="empty" hidden>該当するブランドがありません</p>
 </Base>
 
 <script>
-  const q = document.getElementById('q') as HTMLInputElement;
-  const country = document.getElementById('country') as HTMLSelectElement;
-  const sport = document.getElementById('sport') as HTMLSelectElement;
-  const count = document.getElementById('count')!;
-  const empty = document.getElementById('empty')!;
-  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#brand-grid > li'));
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const q = $<HTMLInputElement>('q');
+  const country = $<HTMLSelectElement>('country');
+  const decade = $<HTMLSelectElement>('decade');
+  const sort = $<HTMLSelectElement>('sort');
+  const grid = $('brand-grid');
+  const items = Array.from(grid.children) as HTMLLIElement[];
 
   // カタカナ・ひらがなの違いを吸収する
   const norm = (s: string) =>
     s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+  const year = (li: HTMLLIElement) => Number(li.dataset.founded) || 0;
 
   function apply() {
     const term = norm(q.value.trim());
     let shown = 0;
     for (const li of items) {
+      const d = li.dataset;
       const ok =
-        (!term || norm(li.dataset.name ?? '').includes(term)) &&
-        (!country.value || li.dataset.country === country.value) &&
-        (!sport.value || (li.dataset.sports ?? '').split(' ').includes(sport.value));
+        (!term || norm(d.name ?? '').includes(term)) &&
+        (!country.value || d.country === country.value) &&
+        (!decade.value || (decade.value === 'unknown' ? !d.decade : d.decade === decade.value));
       li.hidden = !ok;
       if (ok) shown++;
     }
-    count.textContent = `${shown}件`;
-    empty.hidden = shown > 0;
+    $('count').textContent = `${shown}件`;
+    $('empty').hidden = shown > 0;
   }
+
+  function reorder() {
+    const name = (li: HTMLLIElement) => li.dataset.name ?? '';
+    const sorted = [...items].sort((a, b) => {
+      if (sort.value === 'name') return name(a).localeCompare(name(b));
+      // 創業年不明はどちらの並びでも最後
+      const ya = year(a) || (sort.value === 'old' ? 9999 : -1);
+      const yb = year(b) || (sort.value === 'old' ? 9999 : -1);
+      return sort.value === 'old' ? ya - yb : yb - ya;
+    });
+    grid.append(...sorted);
+  }
+
+  // 国別ページなどから ?country=jp で来たとき
+  const params = new URLSearchParams(location.search);
+  if (params.get('country')) country.value = params.get('country')!;
+  if (params.get('decade')) decade.value = params.get('decade')!;
 
   q.addEventListener('input', apply);
   country.addEventListener('change', apply);
-  sport.addEventListener('change', apply);
+  decade.addEventListener('change', apply);
+  sort.addEventListener('change', reorder);
   apply();
 </script>

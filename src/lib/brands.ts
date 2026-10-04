@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { countries, sports } from './taxonomy';
+import { countries, sports, flag, type CountryId } from './taxonomy';
 import { toYen } from './fx';
 
 // 英語名のアルファベット順
@@ -15,18 +15,14 @@ export async function getGroups() {
 export const groupYen = (g: CollectionEntry<'groups'>) =>
   g.data.revenue ? toYen(g.data.revenue.amount, g.data.revenue.currency) : undefined;
 
-// メインビジュアル用：グループを売上高の大きい順に並べ、傘下のブランドを添える
-// 売上が分からないグループ・グループ不明のブランドは最後にまとめる
-export async function getRanking() {
-  const [brands, groups] = await Promise.all([getBrands(), getGroups()]);
-  const ranked = groups
-    .filter((g) => g.data.revenue)
-    .map((g) => ({ group: g, yen: groupYen(g)!, brands: brands.filter((b) => b.data.group?.id === g.id) }))
-    .sort((a, b) => b.yen - a.yen);
-  const rankedIds = new Set(ranked.map((r) => r.group.id));
-  const undisclosed = brands.filter((b) => !b.data.group || !rankedIds.has(b.data.group.id));
-  return { ranked, undisclosed };
+
+// 創業年の古い順。創業年が分からないものは最後に名前順
+export function byFounded(a: CollectionEntry<'brands'>, b: CollectionEntry<'brands'>) {
+  return (a.data.founded ?? 9999) - (b.data.founded ?? 9999) || a.data.nameEn.localeCompare(b.data.nameEn, 'en', { sensitivity: 'base' });
 }
 
-export const countryName = (id: keyof typeof countries) => countries[id];
+export const decadeOf = (year: number) => Math.floor(year / 10) * 10;
+
+export const countryName = (id: CountryId) => countries[id];
+export const countryLabel = (id: CountryId) => `${flag(id)} ${countries[id]}`;
 export const sportName = (id: keyof typeof sports) => sports[id];

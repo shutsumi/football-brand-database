@@ -67,7 +67,7 @@ h2 { font-size: 18px; margin: 32px 0 8px; padding-bottom: 4px; border-bottom: 1p
 
 /* タグ */
 .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.tags a { display: inline-block; font-size: 13px; text-decoration: none; background: var(--bg-soft); padding: 2px 10px; }
+.tags a, .tags span { display: inline-block; font-size: 13px; text-decoration: none; background: var(--bg-soft); padding: 2px 10px; }
 .tags a:hover { color: var(--accent); }
 
 /* 詳細 */
@@ -93,25 +93,30 @@ h2 { font-size: 18px; margin: 32px 0 8px; padding-bottom: 4px; border-bottom: 1p
 /* ロゴ画像が無いときの文字ロゴ */
 .text-logo { font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: .04em; color: #545454; font-size: 18px; text-align: center; line-height: 1.2; }
 
-/* 売上高ランキング（メインビジュアル） */
-.ranking { margin: 8px 0 40px; }
-.ranking-title { margin-top: 0; }
-.ranking-list { list-style: none; padding: 0; margin: 0; }
-.ranking-row { padding: 14px 0; border-bottom: 1px solid var(--line); }
-.ranking-head { display: flex; align-items: baseline; gap: 10px; }
-.rank { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 20px; min-width: 1.2em; }
-.ranking-group { font-weight: 700; text-decoration: none; flex: 1; line-height: 1.4; }
-.ranking-yen { font-family: 'Lato', 'Noto Sans JP', sans-serif; font-weight: 700; white-space: nowrap; }
-.bar { height: 4px; background: var(--bg-soft); margin: 6px 0 10px; }
-.bar span { display: block; height: 100%; background: var(--text); }
-.ranking-row:first-child .bar span { background: var(--accent); }
-.ranking-logos { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
-.ranking-logos a { text-decoration: none; display: flex; align-items: center; background: var(--logo-bg); padding: 4px 8px; border: 1px solid var(--line); max-width: 100%; }
-.ranking-logos a:hover { border-color: var(--accent); }
-.ranking-logos img { height: 100%; width: auto; max-width: 220px; object-fit: contain; }
-.ranking-logos .text-logo { font-size: 14px; }
-.other-brand { font-size: 13px; color: var(--sub); border: 1px dashed var(--line); padding: 2px 8px; }
-.ranking-note { margin-top: 10px; }
+/* トップの数字 */
+.stats { display: flex; justify-content: center; gap: 28px; margin: 4px 0 28px; text-align: center; }
+.stats b { display: block; font-family: 'Lato', sans-serif; font-size: 30px; line-height: 1.2; }
+.stats span { font-size: 12px; color: var(--sub); }
+.hero { text-align: center; padding: 8px 0 0; }
+.hero h1 { font-size: 26px; letter-spacing: .14em; }
 
-/* グループ詳細 */
-.group-brands { margin-top: 8px; }
+/* カードの国・創業年 */
+.card-facts { display: flex; justify-content: space-between; gap: 6px; font-size: 13px; margin-top: 2px; }
+.card-year { font-family: 'Lato', sans-serif; font-weight: 700; white-space: nowrap; }
+.card-ja { font-size: 12px; color: var(--sub); line-height: 1.4; }
+
+/* 年表 */
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline > li { display: grid; grid-template-columns: 4.2em 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.decade { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.6; }
+.decade small { display: block; font-size: 11px; color: var(--sub); font-weight: 400; }
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips a { display: inline-block; text-decoration: none; background: var(--bg-soft); padding: 2px 10px; font-size: 13px; line-height: 1.7; }
+.chips a:hover { color: var(--accent); }
+.chips .y { color: var(--sub); font-family: 'Lato', sans-serif; margin-right: 4px; }
+
+.region { margin-top: 28px; }
+.history:empty { display: none; }
+.count-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.count-row .count { margin: 0; }
+.count-row select { font: inherit; font-size: 14px; color: var(--text); background: var(--bg); border: 1px solid var(--line); padding: 4px 6px; }

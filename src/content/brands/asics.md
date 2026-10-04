@@ -13,6 +13,7 @@ logo:
 nameOrigin: 古代ローマの風刺詩人ユウェナリスの言葉「Anima Sana In Corpore Sano（健全な身体に健全な精神があれかし）」の頭文字から。
 sports:
   - running
+  - football
   - tennis
   - volleyball
   - basketball
@@ -25,6 +26,8 @@ officialUrl: https://www.asics.com/
 sources:
   - title: アシックスの歴史 - アシックス 企業情報
     url: https://corp.asics.com/jp/about_asics/history
+  - title: サッカースパイク DS LIGHT（ディーエスライト）シリーズ｜アシックス公式
+    url: https://www.asics.com/jp/ja-jp/mk/soccer/dslight
   - title: ASICS - Wikipedia
     url: https://en.wikipedia.org/wiki/ASICS
   - title: Novak Djokovic pens global footwear deal with Asics - SportsPro

@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Logo from './Logo.astro';
-import { countryName } from '../lib/brands';
+import { countryLabel, decadeOf } from '../lib/brands';
 
 interface Props {
   brands: CollectionEntry<'brands'>[];
@@ -11,14 +11,19 @@ const { brands } = Astro.props;
 <ul class="grid" id="brand-grid">
   {brands.map((b) => (
     <li
-      data-name={`${b.data.nameEn} ${b.data.nameJa}`.toLowerCase()}
+      data-name={`${b.data.nameEn} ${b.data.nameJa ?? ''}`.toLowerCase()}
       data-country={b.data.country}
-      data-sports={b.data.sports.join(' ')}
+      data-founded={b.data.founded ?? ''}
+      data-decade={b.data.founded ? decadeOf(b.data.founded) : ''}
     >
       <a class="card" href={`/brands/${b.id}/`}>
         <div class="logo-box"><Logo brand={b} /></div>
         <div class="card-name">{b.data.nameEn}</div>
-        <div class="card-meta">{b.data.nameJa}・{countryName(b.data.country)}{b.data.founded && `・${b.data.founded}年`}</div>
+        {b.data.nameJa && <div class="card-ja">{b.data.nameJa}</div>}
+        <div class="card-facts">
+          <span>{countryLabel(b.data.country)}</span>
+          <span class="card-year">{b.data.founded ? `${b.data.founded}年` : '創業年不明'}</span>
+        </div>
       </a>
     </li>
   ))}

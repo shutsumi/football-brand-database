@@ -29,13 +29,18 @@ const groups = defineCollection({
 });
 
 // マイナーブランドは分からない項目が多いので、確認できたものだけ書く
+// 国（country）だけは必須。創業年は分からなければ書かない
 const brands = defineCollection({
   // ファイル名（拡張子なし）がそのまま URL になる： nike.md → /brands/nike/
   loader: glob({ pattern: '*.md', base: './src/content/brands' }),
   schema: z.object({
     nameEn: z.string(),
-    nameJa: z.string(),
+    // 日本語表記が出典で確認できるときだけ
+    nameJa: z.string().optional(),
+    // 今の本拠地の国
     country: z.enum(countryIds),
+    // 創業した国が今の本拠地と違うとき（例：ブラジル発祥で今は日本の Athleta）
+    origin: z.enum(countryIds).optional(),
     // 所有する会社。確認できなければ書かない
     group: reference('groups').optional(),
     founded: z.number().int().optional(),
@@ -58,7 +63,7 @@ const brands = defineCollection({
       // 契約を確認した出典
       source: z.url(),
     })).default([]),
-    officialUrl: z.url(),
+    officialUrl: z.url().optional(),
     sources: z.array(source).min(1),
     updated: z.coerce.date(),
   }),

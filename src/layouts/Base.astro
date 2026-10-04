@@ -5,8 +5,8 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title, description = '大手から無名のブランドまで、世界のスポーツブランドのロゴ・歴史・傘下グループ・契約選手を出典つきでまとめた図鑑。' } = Astro.props;
-const siteName = 'スポーツブランド図鑑';
+const { title, description = '世界のサッカーブランドを、どこの国で・いつ創業したかで引ける図鑑。大手から無名のブランドまで出典つき。' } = Astro.props;
+const siteName = 'サッカーブランド図鑑';
 const fullTitle = title ? `${title}｜${siteName}` : siteName;
 ---
 <!doctype html>
@@ -27,8 +27,7 @@ const fullTitle = title ? `${title}｜${siteName}` : siteName;
         <nav class="site-nav">
           <a href="/">すべて</a>
           <a href="/countries/">国別</a>
-          <a href="/sports/">競技別</a>
-          <a href="/groups/">グループ</a>
+          <a href="/timeline/">年表</a>
         </nav>
       </div>
     </header>
@@ -38,7 +37,7 @@ const fullTitle = title ? `${title}｜${siteName}` : siteName;
     <footer class="site-footer">
       <div class="wrap">
         <p>掲載しているロゴ・ブランド名は各社の商標または登録商標です。本サイトは各社と提携・関係するものではありません。</p>
-        <p>ロゴ画像は Wikimedia Commons から取得し、各ブランドのページに出典を記載しています。掲載情報は各ページの出典にもとづき、記載の更新日時点のものです。</p>
+        <p>ロゴ画像は Wikimedia Commons から取得し、国・創業年は主に Wikipedia と Wikidata にもとづきます。いずれも、各ブランドのページに出典を記載しています。掲載情報は記載の更新日時点のものです。</p>
       </div>
     </footer>
   </body>
