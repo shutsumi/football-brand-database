@@ -46,6 +46,13 @@ npm run build   # dist/ に出力
 - 公式サイトはcurlとブラウザで開けることを確認。駐車ドメイン・スパム化・別会社のドメインは載せない
 - 調べたが国が確定できず見送った候補：Bang Sports、NT Sport、La Cabra、Devis、Siker、GEMS、Wunderelf、Gloria Sport、Brasimba、Svedda、Matute など
 
+## 地域を絞った追加（アフリカ・東欧・中東、22件）
+
+- 各国リーグの「どのブランドがどのクラブを作っているか」を国ごとに検索して地元ブランドを洗い出し、1件ずつ国を確認
+- 協会の自前ブランド（ウガンダのJanzi、ザンビアのKoPa）やクラブの自前ブランドも、ユニフォームを作っていれば対象
+- 国が確定できず見送った：DKALI、ZatOutfit、Tempo、SizzlingSport、Rada、Kapspor、SKIDAN、Casa Sportiva、Cikers、DJEVO、Arem Sports、Maxpro、Pindiz
+- 中東（カタール・イラク・ヨルダン・UAE・イスラエル）と東欧の多く（ルーマニア・ブルガリア・ジョージア・チェコ）は、リーグを海外ブランドが占めていて地元ブランドが見つからなかった
+
 ## 売上高（グループページだけ）
 
 トップからは外した。グループページ（`/groups/`）には Nike・adidas・ASICS の売上高が残っている。円換算は `src/lib/fx.ts` の ECB 参照レート。
