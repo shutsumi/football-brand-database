@@ -29,6 +29,10 @@ npm run build   # dist/ に出力
 - 契約選手は移籍・契約終了が起きやすい。生涯契約など長期の裏付けがある選手を優先し、直したら `updated` を更新する
 - ロゴは商標。フッターの商標表記は消さない
 
+## 契約選手の毎月見直し
+
+毎月11日9時に定期タスク「soccer-brand-athletes-monthly」が変更案（`athletes/proposals/`）を作る。反映は内海さんの確認後。手順は `athletes/README.md`。
+
 ## 一括取り込み（2026-10-04、112件）
 
 - 候補は英語版Wikipediaの「Category:Sportswear brands」と、Wikidataでサッカーチームの「kit supplier（P5995）」になっているブランド
