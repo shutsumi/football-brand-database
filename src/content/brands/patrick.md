@@ -1,5 +1,6 @@
 ---
 nameEn: "Patrick"
+nameJa: "パトリック"
 country: be
 origin: fr
 founded: 1892
@@ -12,9 +13,11 @@ sports:
   - football
 officialUrl: "https://www.patrick.eu/en-eu"
 sources:
+  - title: "パトリック : PATRICK - ファッションプレス"
+    url: "https://www.fashion-press.net/brands/2232"
   - title: "Patrick (sportswear company) - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Patrick_%28sportswear_company%29"
   - title: "Patrick - Wikidata"
     url: "https://www.wikidata.org/wiki/Q2077529"
-updated: 2026-10-04
+updated: 2026-10-06
 ---

@@ -1,5 +1,6 @@
 ---
 nameEn: "Capelli Sport"
+nameJa: "カペリスポーツ"
 country: us
 founded: 2011
 logo:
@@ -11,9 +12,11 @@ sports:
   - football
 officialUrl: "https://www.capellisport.com/"
 sources:
+  - title: "(カペリスポーツ)Capelli Sport - ネイバーズスポーツ"
+    url: "https://www.futboljersey.com/goods/g32002/"
   - title: "Capelli Sport - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Capelli_Sport"
   - title: "Capelli Sport - Wikidata"
     url: "https://www.wikidata.org/wiki/Q55146336"
-updated: 2026-10-04
+updated: 2026-10-06
 ---

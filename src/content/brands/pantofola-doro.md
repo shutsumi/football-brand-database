@@ -1,5 +1,6 @@
 ---
 nameEn: "Pantofola d'Oro"
+nameJa: "パントフォラ・ドーロ"
 country: it
 founded: 1886
 logo:
@@ -11,9 +12,11 @@ sports:
   - football
 officialUrl: "https://www.pantofoladoro.com/"
 sources:
+  - title: "パントフォラ ドーロ と読みます。 - BEAMS"
+    url: "https://www.beams.co.jp/blog/ttb/106257/"
   - title: "Pantofola d'Oro - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Pantofola_d%27Oro"
   - title: "Pantofola d'Oro - Wikidata"
     url: "https://www.wikidata.org/wiki/Q2012903"
-updated: 2026-10-04
+updated: 2026-10-06
 ---

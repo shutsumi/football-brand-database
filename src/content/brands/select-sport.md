@@ -1,5 +1,6 @@
 ---
 nameEn: "Select Sport"
+nameJa: "セレクト"
 country: dk
 founded: 1947
 logo:
@@ -11,9 +12,11 @@ sports:
   - football
 officialUrl: "https://www.select-sport.com/"
 sources:
+  - title: "Select(セレクト) - NECKAR"
+    url: "https://neckar.jp/c/brand_maker/select"
   - title: "Select Sport - Wikipedia"
     url: "https://en.wikipedia.org/wiki/Select_Sport"
   - title: "Select Sport - Wikidata"
     url: "https://www.wikidata.org/wiki/Q3179671"
-updated: 2026-10-04
+updated: 2026-10-06
 ---
