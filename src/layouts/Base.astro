@@ -5,8 +5,8 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title, description = '世界のサッカーブランドを、どこの国で・いつ創業したかで引ける図鑑。大手から無名のブランドまで出典つき。' } = Astro.props;
-const siteName = 'サッカーブランド図鑑';
+const { title, description = 'サッカー関連商品を製造・販売している世界のスポーツブランドのデータベース。国・創業年で探せて、大手から無名のブランドまで出典つき。' } = Astro.props;
+const siteName = 'サッカーブランドデータベース';
 const fullTitle = title ? `${title}｜${siteName}` : siteName;
 ---
 <!doctype html>
