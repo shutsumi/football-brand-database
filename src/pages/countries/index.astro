@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { getBrands } from '../../lib/brands';
 import { countries, countryIds, regions, regionOf, flag } from '../../lib/taxonomy';
 
+const regionEn: Record<string, string> = { 'ヨーロッパ': 'Europe', 'アジア': 'Asia', '中東': 'Middle East', '北米': 'North America', '中南米': 'Latin America', 'アフリカ': 'Africa', 'オセアニア': 'Oceania' };
+
 const brands = await getBrands();
 const rows = countryIds
   .map((id) => ({ id, name: countries[id], region: regionOf(id), count: brands.filter((b) => b.data.country === id).length }))
@@ -10,15 +12,16 @@ const rows = countryIds
   .sort((a, b) => b.count - a.count);
 ---
 <Base title="国別一覧" description="サッカーブランドを国・地域別に一覧。">
+  <span class="eyebrow">Countries</span>
   <h1>国別一覧</h1>
   <p class="lead">{rows.length}の国と地域のブランド</p>
   {regions.map((region) => {
     const list = rows.filter((r) => r.region === region);
     return list.length > 0 && (
       <section class="region">
-        <h2>{region}</h2>
+        <div class="section-head"><div><span class="eyebrow">{regionEn[region]}</span><h2>{region}</h2></div><p class="count">{list.length}</p></div>
         <ul class="index-list">
-          {list.map((r) => <li><a href={`/countries/${r.id}/`}><span>{flag(r.id)} {r.name}</span><span class="muted">{r.count}ブランド</span></a></li>)}
+          {list.map((r) => <li><a href={`/countries/${r.id}/`}><span>{flag(r.id)} {r.name}</span><span><span class="n">{r.count}</span> <span class="muted">ブランド</span></span></a></li>)}
         </ul>
       </section>
     );

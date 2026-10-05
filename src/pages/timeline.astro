@@ -9,6 +9,7 @@ const decades = [...new Set(dated.map((b) => decadeOf(b.data.founded!)))];
 const unknown = brands.filter((b) => !b.data.founded);
 ---
 <Base title="創業年表" description="世界のサッカーブランドを創業年順に並べた年表。">
+  <span class="eyebrow">Timeline</span>
   <h1>創業年表</h1>
   <p class="lead">古いブランドから順に</p>
   <ol class="timeline">
@@ -16,7 +17,7 @@ const unknown = brands.filter((b) => !b.data.founded);
       const list = dated.filter((b) => decadeOf(b.data.founded!) === d);
       return (
         <li>
-          <div class="decade">{d}<small>{list.length}件</small></div>
+          <div class="decade">{d}<small>{list.length} {list.length === 1 ? "BRAND" : "BRANDS"}</small></div>
           <ul class="chips">
             {list.map((b) => (
               <li><a href={`/brands/${b.id}/`}><span class="y">{b.data.founded}</span>{flag(b.data.country)} {b.data.nameEn}</a></li>
@@ -27,7 +28,7 @@ const unknown = brands.filter((b) => !b.data.founded);
     })}
     {unknown.length > 0 && (
       <li>
-        <div class="decade">不明<small>{unknown.length}件</small></div>
+        <div class="decade">?<small>{unknown.length} BRANDS 不明</small></div>
         <ul class="chips">
           {unknown.map((b) => <li><a href={`/brands/${b.id}/`}>{flag(b.data.country)} {b.data.nameEn}</a></li>)}
         </ul>

@@ -2,7 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Logo from '../../components/Logo.astro';
-import { getBrands, byFounded, countryLabel, sportName } from '../../lib/brands';
+import { getBrands, byFounded, countryLabel, countryEn, sportName, brandNumbers } from '../../lib/brands';
 
 export async function getStaticPaths() {
   const brands = await getBrands();
@@ -18,52 +18,57 @@ const d = brand.data;
 const { Content } = await render(brand);
 const hasHistory = Boolean(brand.body?.trim());
 const group = d.group ? await getEntry(d.group) : undefined;
+const no = (await brandNumbers()).get(brand.id);
 const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.updated.getDate()}日`;
 ---
 <Base
   title={d.nameJa ? `${d.nameEn}（${d.nameJa}）` : d.nameEn}
   description={d.note ?? `${d.nameEn}${d.nameJa ? `（${d.nameJa}）` : ''}は${countryLabel(d.country).split(' ')[1]}のサッカーブランド${d.founded ? `。${d.founded}年創業` : ''}。`}
 >
-  <div class="detail-logo logo-box">
-    <Logo brand={brand} lazy={false} />
-  </div>
-  <h1>{d.nameEn}</h1>
-  {d.nameJa && <p class="lead">{d.nameJa}</p>}
+  <section class="brand-hero">
+    <div>
+      <span class="eyebrow">No.{no} — {countryEn(d.country)}{d.founded && ` — Est. ${d.founded}`}</span>
+      <h1 class="brand-title">{d.nameEn}</h1>
+      {d.nameJa && <p class="lead">{d.nameJa}</p>}
+    </div>
+    <div class="detail-logo logo-box">
+      <Logo brand={brand} lazy={false} />
+    </div>
+  </section>
   {d.note && <p class="brand-note">{d.note}</p>}
 
   <dl class="facts">
-    <dt>国</dt>
-    <dd><a href={`/countries/${d.country}/`}>{countryLabel(d.country)}</a></dd>
-    {d.origin && <><dt>創業国</dt><dd><a href={`/countries/${d.origin}/`}>{countryLabel(d.origin)}</a></dd></>}
-    <dt>創業</dt>
-    <dd>{d.founded ? <a href={`/timeline/`}>{d.founded}年</a> : '不明'}{d.closed && `（${d.closed}年に閉業）`}</dd>
-    {d.founders.length > 0 && <><dt>創業者</dt><dd>{d.founders.join('、')}</dd></>}
-    {group && <><dt>グループ</dt><dd><a href={`/groups/${group.id}/`}>{group.data.nameEn}</a></dd></>}
+    <div><dt>Country 国</dt><dd><a href={`/countries/${d.country}/`}>{countryLabel(d.country)}</a></dd></div>
+    {d.origin && <div><dt>Origin 創業国</dt><dd><a href={`/countries/${d.origin}/`}>{countryLabel(d.origin)}</a></dd></div>}
+    <div><dt>Founded 創業</dt><dd class={d.founded ? 'big' : undefined}>{d.founded ? <a href="/timeline/">{d.founded}</a> : '不明'}</dd></div>
+    {d.closed && <div><dt>Closed 閉業</dt><dd class="big">{d.closed}</dd></div>}
+    {d.founders.length > 0 && <div><dt>Founder 創業者</dt><dd>{d.founders.join('、')}</dd></div>}
+    {group && <div><dt>Group グループ</dt><dd><a href={`/groups/${group.id}/`}>{group.data.nameEn}</a></dd></div>}
     {d.officialUrl && (
-      <>
-        <dt>公式サイト</dt>
+      <div>
+        <dt>Website 公式サイト</dt>
         <dd><a href={d.officialUrl} rel="noopener" target="_blank">{d.officialUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
-      </>
+      </div>
     )}
   </dl>
 
   {d.nameOrigin && (
     <>
-      <h2>名前の由来</h2>
+      <div class="section-head"><div><span class="eyebrow">Name</span><h2>名前の由来</h2></div></div>
       <p>{d.nameOrigin}</p>
     </>
   )}
 
   {hasHistory && (
     <>
-      <h2>歴史</h2>
+      <div class="section-head"><div><span class="eyebrow">History</span><h2>歴史</h2></div></div>
       <div class="history"><Content /></div>
     </>
   )}
 
   {d.sports.length > 1 && (
     <>
-      <h2>主な競技</h2>
+      <div class="section-head"><div><span class="eyebrow">Sports</span><h2>主な競技</h2></div></div>
       <ul class="tags">
         {d.sports.map((s) => <li><span>{sportName(s)}</span></li>)}
       </ul>
@@ -72,7 +77,7 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
 
   {d.athletes.length > 0 && (
     <>
-      <h2>主な契約選手</h2>
+      <div class="section-head"><div><span class="eyebrow">Athletes</span><h2>主な契約選手</h2></div></div>
       <table class="athletes">
         <thead><tr><th>選手</th><th>競技</th><th>国</th></tr></thead>
         <tbody>
@@ -89,7 +94,7 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
     </>
   )}
 
-  <h2>出典</h2>
+  <div class="section-head"><div><span class="eyebrow">Sources</span><h2>出典</h2></div></div>
   <ul class="sources">
     {d.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
     {d.logo && (
@@ -103,7 +108,7 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
 
   {sameCountry.length > 0 && (
     <>
-      <h2>{countryLabel(d.country)}のほかのブランド</h2>
+      <div class="section-head"><div><span class="eyebrow">More from {countryEn(d.country)}</span><h2>{countryLabel(d.country)}のほかのブランド</h2></div></div>
       <ul class="chips">
         {sameCountry.map((b) => (
           <li><a href={`/brands/${b.id}/`}>{b.data.founded && <span class="y">{b.data.founded}</span>}{b.data.nameEn}</a></li>

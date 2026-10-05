@@ -26,3 +26,17 @@ export const decadeOf = (year: number) => Math.floor(year / 10) * 10;
 export const countryName = (id: CountryId) => countries[id];
 export const countryLabel = (id: CountryId) => `${flag(id)} ${countries[id]}`;
 export const sportName = (id: keyof typeof sports) => sports[id];
+
+// 国名の英語表記（見出しの小さなラベル用）
+const enRegion = new Intl.DisplayNames(['en'], { type: 'region' });
+export const countryEn = (id: CountryId) => (enRegion.of(id.toUpperCase()) ?? id).toUpperCase();
+
+// 通し番号：全ブランドを創業が古い順に並べた順位（No.001 …）
+let numbers: Map<string, string> | undefined;
+export async function brandNumbers() {
+  if (!numbers) {
+    const all = (await getCollection('brands')).sort(byFounded);
+    numbers = new Map(all.map((b, i) => [b.id, String(i + 1).padStart(3, '0')]));
+  }
+  return numbers;
+}

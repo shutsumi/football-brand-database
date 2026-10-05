@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import BrandGrid from '../../components/BrandGrid.astro';
-import { getBrands, byFounded } from '../../lib/brands';
+import { getBrands, byFounded, countryEn } from '../../lib/brands';
 import { countries, countryIds, flag } from '../../lib/taxonomy';
 
 export async function getStaticPaths() {
@@ -15,6 +15,7 @@ const { id, brands } = Astro.props;
 const name = countries[id];
 ---
 <Base title={`${name}のサッカーブランド`} description={`${name}のサッカーブランド${brands.length}件を創業年順に。`}>
+  <span class="eyebrow">{countryEn(id)}</span>
   <h1>{flag(id)} {name}</h1>
   <p class="lead">{name}のサッカーブランド {brands.length}件（創業が古い順）</p>
   <BrandGrid brands={brands} />

@@ -15,16 +15,21 @@ const decades = [...new Set(brands.flatMap((b) => (b.data.founded ? [decadeOf(b.
 const oldest = brands.find((b) => b.data.founded);
 ---
 <Base>
-  <div class="hero">
+  <section class="cover">
+    <span class="eyebrow">The database of football brands</span>
+    <p class="cover-title" aria-hidden="true"><span>Soccer</span><span>Brand</span><span>Database</span></p>
     <h1>サッカーブランド<wbr />データベース</h1>
     <p class="lead">サッカー関連商品を<wbr />製造・販売している<wbr />スポーツブランドを<wbr />集めました</p>
-  </div>
-  <div class="stats">
-    <div><b>{brands.length}</b><span>ブランド</span></div>
-    <div><b>{used.size}</b><span>の国と地域</span></div>
-    {oldest && <div><b>{oldest.data.founded}</b><span>最古（{oldest.data.nameEn}）</span></div>}
-  </div>
+    <div class="stats">
+      <div><b>{brands.length}</b><span class="eyebrow">Brands</span><small>ブランド</small></div>
+      <div><b>{used.size}</b><span class="eyebrow">Countries</span><small>の国と地域</small></div>
+      {oldest && <div><b>{oldest.data.founded}</b><span class="eyebrow">Since</span><small>最古（{oldest.data.nameEn}）</small></div>}
+    </div>
+  </section>
 
+  <div class="section-head">
+    <div><span class="eyebrow">Index</span><h2>すべてのブランド</h2></div>
+  </div>
   <form class="filters" role="search" onsubmit="return false">
     <input id="q" type="search" placeholder="ブランド名で検索（例：ミズノ、Umbro）" aria-label="ブランド名で検索" />
     <select id="country" aria-label="国で絞り込み">
