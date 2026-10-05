@@ -17,11 +17,6 @@ sports:
   - tennis
   - volleyball
   - basketball
-athletes:
-  - name: ノバク・ジョコビッチ
-    sport: tennis
-    country: セルビア
-    source: https://www.sportspro.com/news/novak-djokovic-pens-global-footwear-deal-with-asics/
 officialUrl: https://www.asics.com/
 sources:
   - title: アシックスの歴史 - アシックス 企業情報

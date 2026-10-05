@@ -92,6 +92,7 @@ export const flag = (id: CountryId) =>
 
 export const sports = {
   football: 'サッカー',
+  futsal: 'フットサル',
   running: 'ランニング',
   basketball: 'バスケットボール',
   tennis: 'テニス',

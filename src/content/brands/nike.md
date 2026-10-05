@@ -21,10 +21,6 @@ sports:
   - golf
   - american-football
 athletes:
-  - name: レブロン・ジェームズ
-    sport: basketball
-    country: アメリカ
-    source: https://www.espn.com/nba/story/_/id/14314807/lebron-james-signs-life-deal-nike
   - name: クリスティアーノ・ロナウド
     sport: football
     country: ポルトガル

@@ -79,18 +79,18 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
     <>
       <div class="section-head"><div><span class="eyebrow">Athletes</span><h2>主な契約選手</h2></div></div>
       <table class="athletes">
-        <thead><tr><th>選手</th><th>競技</th><th>国</th></tr></thead>
+        <thead><tr><th>Player 選手</th><th>Club 所属</th><th>Country 国</th></tr></thead>
         <tbody>
           {d.athletes.map((a) => (
             <tr>
-              <td><a href={a.source} rel="noopener" target="_blank">{a.name}</a></td>
-              <td>{sportName(a.sport)}</td>
+              <td><a href={a.source} rel="noopener" target="_blank">{a.name}</a>{a.sport === 'futsal' && <span class="muted">（フットサル）</span>}</td>
+              <td>{a.club ?? '—'}</td>
               <td>{a.country}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p class="muted">選手名のリンクは契約を報じた出典です。契約状況は変わることがあります。</p>
+      <p class="muted">選手名のリンクは契約を報じた出典です。毎月11日に見直していますが、契約状況は変わることがあります。</p>
     </>
   )}
 

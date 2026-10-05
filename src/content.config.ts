@@ -60,13 +60,16 @@ const brands = defineCollection({
     }).optional(),
     nameOrigin: z.string().optional(),
     sports: z.array(z.enum(sportIds)).min(1),
+    // 主な契約選手（サッカー・フットサルの選手だけ、最大5人）。毎月11日に見直す（athletes/README.md）
     athletes: z.array(z.object({
       name: z.string(),
-      sport: z.enum(sportIds),
+      sport: z.enum(['football', 'futsal']),
       country: z.string(),
+      // 所属クラブ（任意）
+      club: z.string().optional(),
       // 契約を確認した出典
       source: z.url(),
-    })).default([]),
+    })).max(5).default([]),
     officialUrl: z.url().optional(),
     sources: z.array(source).min(1),
     updated: z.coerce.date(),
