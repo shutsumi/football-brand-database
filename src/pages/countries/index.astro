@@ -11,7 +11,7 @@ const rows = countryIds
 ---
 <Base title="国別一覧" description="サッカーブランドを国・地域別に一覧。">
   <h1>国別一覧</h1>
-  <p class="lead">{rows.length}か国のブランド</p>
+  <p class="lead">{rows.length}の国と地域のブランド</p>
   {regions.map((region) => {
     const list = rows.filter((r) => r.region === region);
     return list.length > 0 && (
