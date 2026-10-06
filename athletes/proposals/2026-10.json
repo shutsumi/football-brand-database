@@ -1,0 +1,247 @@
+{
+  "month": "2026-10",
+  "brands": {
+    "adidas": [
+      {
+        "name": "リオネル・メッシ",
+        "sport": "football",
+        "country": "アルゼンチン",
+        "club": "インテル・マイアミ",
+        "source": "https://www.cbssports.com/soccer/news/barcelona-star-lionel-messi-signs-new-lifetime-contract-with-adidas"
+      },
+      {
+        "name": "ラミン・ヤマル",
+        "sport": "football",
+        "country": "スペイン",
+        "club": "バルセロナ",
+        "source": "https://beinsports.com/en-us/soccer/la-liga/articles-video/lamine-yamal-follows-messi-s-lead-leaves-nike-signs-with-adidas-2024-02-26"
+      },
+      {
+        "name": "ジュード・ベリンガム",
+        "sport": "football",
+        "country": "イングランド",
+        "club": "レアル・マドリード",
+        "source": "https://www.goal.com/fr/news/jude-bellingham-est-le-nouveau-visage-d-adidas-la-star-du-real-madrid-et-de-l-equipe-d-angleterre-suit-ainsi-les-traces-de-david-beckham-et-zinedine-zidane/blt0b2d8a3a71b1082d"
+      },
+      {
+        "name": "マルティン・ウーデゴール",
+        "sport": "football",
+        "country": "ノルウェー",
+        "club": "アーセナル",
+        "source": "https://houseofheat.co/adidas/martin-odegaard-switches-to-adidas-predator"
+      }
+    ],
+    "nike": [
+      {
+        "name": "クリスティアーノ・ロナウド",
+        "sport": "football",
+        "country": "ポルトガル",
+        "club": "アル・ナスル",
+        "source": "https://money.cnn.com/2016/11/09/news/companies/cristiano-ronaldo-nike-lifetime-contract/index.html"
+      },
+      {
+        "name": "ヴィニシウス・ジュニオール",
+        "sport": "football",
+        "country": "ブラジル",
+        "club": "レアル・マドリード",
+        "source": "https://www.footyheadlines.com/2023/11/vinicius-officially-signed-a-new-long-term-partnership-with-nike.html"
+      },
+      {
+        "name": "アーリング・ハーランド",
+        "sport": "football",
+        "country": "ノルウェー",
+        "club": "マンチェスター・シティ",
+        "source": "https://www.soccerbible.com/news/2023/03/erling-haaland-officially-signs-with-nike/"
+      }
+    ],
+    "puma": [
+      {
+        "name": "ネイマール",
+        "sport": "football",
+        "country": "ブラジル",
+        "source": "https://us.puma.com/us/en/articles/football-boots-2026-tournament"
+      },
+      {
+        "name": "カイ・ハフェルツ",
+        "sport": "football",
+        "country": "ドイツ",
+        "source": "https://us.puma.com/us/en/articles/football-boots-2026-tournament"
+      },
+      {
+        "name": "コーディ・ガクポ",
+        "sport": "football",
+        "country": "オランダ",
+        "source": "https://us.puma.com/us/en/articles/football-boots-2026-tournament"
+      },
+      {
+        "name": "クリスチャン・プリシッチ",
+        "sport": "football",
+        "country": "アメリカ",
+        "source": "https://us.puma.com/us/en/articles/football-boots-2026-tournament"
+      },
+      {
+        "name": "メンフィス・デパイ",
+        "sport": "football",
+        "country": "オランダ",
+        "source": "https://us.puma.com/us/en/articles/football-boots-2026-tournament"
+      }
+    ],
+    "new-balance": [
+      {
+        "name": "ブカヨ・サカ",
+        "sport": "football",
+        "country": "イングランド",
+        "club": "アーセナル",
+        "source": "https://footyheadlines.com/2025/12/nb-furon-v8-saka.html"
+      },
+      {
+        "name": "ヤン・ディオマンデ",
+        "sport": "football",
+        "country": "コートジボワール",
+        "club": "RBライプツィヒ",
+        "source": "https://newbalance.newsmarket.com/latest-news/yan-diomande-joins-the-new-balance-global-football-family/s/25506753-edc5-4a3e-b550-461beffc92d2"
+      },
+      {
+        "name": "ユヌス・ムサー",
+        "sport": "football",
+        "country": "アメリカ",
+        "club": "アタランタ",
+        "source": "https://newbalance.newsmarket.com/latest-news/yunus-musah-announced-as-newest-global-football-athlete/s/4daead4a-c3ed-4ca3-bbb3-c46a757ec65c"
+      }
+    ],
+    "on": [
+      {
+        "name": "キリアン・エムバペ",
+        "sport": "football",
+        "country": "フランス",
+        "club": "レアル・マドリード",
+        "source": "https://press.on-running.com/on-enters-football-alongside-kylian-mbappe"
+      }
+    ],
+    "under-armour": [
+      {
+        "name": "アクラフ・ハキミ",
+        "sport": "football",
+        "country": "モロッコ",
+        "club": "パリ・サンジェルマン",
+        "source": "https://retailtimes.co.uk/under-armour-signs-world-class-right-back-achraf-hakimi/"
+      },
+      {
+        "name": "フェラン・トーレス",
+        "sport": "football",
+        "country": "スペイン",
+        "club": "バルセロナ",
+        "source": "https://houseofheat.co/under-armour/ferran-torres-under-armour-shadow-elite-4-mach-fg-world-cup-final-2026"
+      },
+      {
+        "name": "ルイス・マイリー",
+        "sport": "football",
+        "country": "イングランド",
+        "club": "ニューカッスル・ユナイテッド",
+        "source": "https://about.underarmour.com/en/stories/2026/08/under-armour-launches-its-latest-football-boot-innovation--the-m.html"
+      },
+      {
+        "name": "ペドロ・ポロ",
+        "sport": "football",
+        "country": "スペイン",
+        "source": "https://retailtimes.co.uk/under-armour-signs-world-class-right-back-achraf-hakimi/"
+      }
+    ],
+    "mizuno": [
+      {
+        "name": "メイソン・マウント",
+        "sport": "football",
+        "country": "イングランド",
+        "club": "マンチェスター・ユナイテッド",
+        "source": "https://corp.mizuno.com/en/news/20260313"
+      },
+      {
+        "name": "ジョアン・フェリックス",
+        "sport": "football",
+        "country": "ポルトガル",
+        "source": "https://corp.mizuno.com/en/news/20250205"
+      }
+    ],
+    "asics": [
+      {
+        "name": "冨安健洋",
+        "sport": "football",
+        "country": "日本",
+        "source": "https://www.zaikei.co.jp/releases/3458946/"
+      }
+    ],
+    "skechers": [
+      {
+        "name": "ハリー・ケイン",
+        "sport": "football",
+        "country": "イングランド",
+        "club": "バイエルン・ミュンヘン",
+        "source": "https://www.footyheadlines.com/2023/08/skechers-announce-harry-kane-deal-unveil-all-new-skx01-boots.html"
+      },
+      {
+        "name": "モハメド・クドゥス",
+        "sport": "football",
+        "country": "ガーナ",
+        "source": "https://businesswire.com/news/home/20240704983325/en/Footballer-Mohammed-Kudus-Signs-With-Skechers/"
+      },
+      {
+        "name": "セム・ステイン",
+        "sport": "football",
+        "country": "オランダ",
+        "source": "https://www.sgieurope.com/brands/skechers-makes-its-move-on-performance-sport/119974.article"
+      }
+    ],
+    "joma": [
+      {
+        "name": "ダビド・デ・ヘア",
+        "sport": "football",
+        "country": "スペイン",
+        "club": "フィオレンティーナ",
+        "source": "https://footyheadlines.com/2026/03/official-david-de-gea-signs-with-joma.html"
+      }
+    ],
+    "reebok": [
+      {
+        "name": "ドゥシャン・ヴラホヴィッチ",
+        "sport": "football",
+        "country": "セルビア",
+        "club": "ベシクタシュ",
+        "source": "https://fashionunited.uk/news/fashion/reebok-returning-to-football-with-dusan-vlahovic-partnership/2026030986738"
+      }
+    ],
+    "reusch": [
+      {
+        "name": "グレゴール・コベル",
+        "sport": "football",
+        "country": "スイス",
+        "source": "https://www.reusch.com/en/inside-reusch/gregor-kobel-673/"
+      },
+      {
+        "name": "アリソン・ベッカー",
+        "sport": "football",
+        "country": "ブラジル",
+        "source": "https://www.reusch.com/en/inside-reusch/alisson-becker-winner-of-2024-25-premier-league-900/"
+      }
+    ],
+    "uhlsport": [
+      {
+        "name": "マイク・メニャン",
+        "sport": "football",
+        "country": "フランス",
+        "source": "https://www.uhlsport.com/en/Specials/footballsummer2026/"
+      },
+      {
+        "name": "オリヴァー・バウマン",
+        "sport": "football",
+        "country": "ドイツ",
+        "source": "https://www.uhlsport.com/en/Specials/footballsummer2026/"
+      },
+      {
+        "name": "マシュー・ライアン",
+        "sport": "football",
+        "country": "オーストラリア",
+        "source": "https://www.uhlsport.com/en/Specials/footballsummer2026/"
+      }
+    ]
+  }
+}
