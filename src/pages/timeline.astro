@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import { getBrands, byFounded, decadeOf } from '../lib/brands';
 import { flag } from '../lib/taxonomy';
@@ -20,7 +21,7 @@ const unknown = brands.filter((b) => !b.data.founded);
           <div class="decade">{d}<small>{list.length} {list.length === 1 ? "BRAND" : "BRANDS"}</small></div>
           <ul class="chips">
             {list.map((b) => (
-              <li><a href={`/brands/${b.id}/`}><span class="y">{b.data.founded}</span>{flag(b.data.country)} {b.data.nameEn}</a></li>
+              <li><a href={u(`/brands/${b.id}/`)}><span class="y">{b.data.founded}</span>{flag(b.data.country)} {b.data.nameEn}</a></li>
             ))}
           </ul>
         </li>
@@ -30,7 +31,7 @@ const unknown = brands.filter((b) => !b.data.founded);
       <li>
         <div class="decade">?<small>{unknown.length} BRANDS 不明</small></div>
         <ul class="chips">
-          {unknown.map((b) => <li><a href={`/brands/${b.id}/`}>{flag(b.data.country)} {b.data.nameEn}</a></li>)}
+          {unknown.map((b) => <li><a href={u(`/brands/${b.id}/`)}>{flag(b.data.country)} {b.data.nameEn}</a></li>)}
         </ul>
       </li>
     )}

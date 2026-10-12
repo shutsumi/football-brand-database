@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import '../styles/global.css';
 
 interface Props {
@@ -8,7 +9,8 @@ interface Props {
 const { title, description = 'サッカー関連商品を製造・販売している世界のスポーツブランドのデータベース。国・創業年で探せて、大手から無名のブランドまで出典つき。' } = Astro.props;
 const siteName = 'サッカーブランドデータベース';
 const fullTitle = title ? `${title}｜${siteName}` : siteName;
-const path = Astro.url.pathname;
+import { BASE } from '../lib/url';
+const path = Astro.url.pathname.slice(BASE.length) || '/';
 ---
 <!doctype html>
 <html lang="ja">
@@ -24,11 +26,11 @@ const path = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="site-title" href="/"><b>FOOTBALL BRAND DATABASE</b><span>{siteName}</span></a>
+        <a class="site-title" href={u("/")}><b>FOOTBALL BRAND DATABASE</b><span>{siteName}</span></a>
         <nav class="site-nav">
-          <a href="/" aria-current={path === '/' ? 'page' : undefined}><b>BRANDS</b><span>すべて</span></a>
-          <a href="/countries/" aria-current={path.startsWith('/countries') ? 'page' : undefined}><b>COUNTRIES</b><span>国別</span></a>
-          <a href="/timeline/" aria-current={path.startsWith('/timeline') ? 'page' : undefined}><b>TIMELINE</b><span>年表</span></a>
+          <a href={u("/")} aria-current={path === '/' ? 'page' : undefined}><b>BRANDS</b><span>すべて</span></a>
+          <a href={u("/countries/")} aria-current={path.startsWith('/countries') ? 'page' : undefined}><b>COUNTRIES</b><span>国別</span></a>
+          <a href={u("/timeline/")} aria-current={path.startsWith('/timeline') ? 'page' : undefined}><b>TIMELINE</b><span>年表</span></a>
         </nav>
       </div>
     </header>

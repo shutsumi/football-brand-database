@@ -1,4 +1,5 @@
 ---
+import { u } from '../../lib/url';
 import Base from '../../layouts/Base.astro';
 import { getBrands } from '../../lib/brands';
 import { countries, countryIds, regions, regionOf, flag } from '../../lib/taxonomy';
@@ -21,7 +22,7 @@ const rows = countryIds
       <section class="region">
         <div class="section-head"><div><span class="eyebrow">{regionEn[region]}</span><h2>{region}</h2></div><p class="count">{list.length}</p></div>
         <ul class="index-list">
-          {list.map((r) => <li><a href={`/countries/${r.id}/`}><span>{flag(r.id)} {r.name}</span><span><span class="n">{r.count}</span> <span class="muted">ブランド</span></span></a></li>)}
+          {list.map((r) => <li><a href={u(`/countries/${r.id}/`)}><span>{flag(r.id)} {r.name}</span><span><span class="n">{r.count}</span> <span class="muted">ブランド</span></span></a></li>)}
         </ul>
       </section>
     );

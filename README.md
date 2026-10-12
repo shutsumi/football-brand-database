@@ -31,7 +31,7 @@ npm run build   # dist/ に出力
 
 ## 契約選手の毎月見直し
 
-毎月11日9時に定期タスク「soccer-brand-athletes-monthly」が変更案（`athletes/proposals/`）を作る。反映は内海さんの確認後。手順は `athletes/README.md`。
+毎月11日9時に定期タスク「soccer-brand-athletes-monthly」が変更案（`athletes/proposals/`）を作る。反映は運営者の確認後。手順は `athletes/README.md`。
 
 ## 一括取り込み（2026-10-04、112件）
 

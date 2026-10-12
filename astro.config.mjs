@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // 公開先が決まったら差し替える
-  site: 'https://example.com',
+  // GitHub Pages（shutsumi/football-brand-database）で公開
+  site: 'https://shutsumi.github.io',
+  base: '/football-brand-database',
   trailingSlash: 'always',
 });

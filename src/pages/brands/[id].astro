@@ -1,4 +1,5 @@
 ---
+import { u } from '../../lib/url';
 import { getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Logo from '../../components/Logo.astro';
@@ -38,12 +39,12 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
   {d.note && <p class="brand-note">{d.note}</p>}
 
   <dl class="facts">
-    <div><dt>Country 国</dt><dd><a href={`/countries/${d.country}/`}>{countryLabel(d.country)}</a></dd></div>
-    {d.origin && <div><dt>Origin 創業国</dt><dd><a href={`/countries/${d.origin}/`}>{countryLabel(d.origin)}</a></dd></div>}
-    <div><dt>Founded 創業</dt><dd class={d.founded ? 'big' : undefined}>{d.founded ? <a href="/timeline/">{d.founded}</a> : '不明'}</dd></div>
+    <div><dt>Country 国</dt><dd><a href={u(`/countries/${d.country}/`)}>{countryLabel(d.country)}</a></dd></div>
+    {d.origin && <div><dt>Origin 創業国</dt><dd><a href={u(`/countries/${d.origin}/`)}>{countryLabel(d.origin)}</a></dd></div>}
+    <div><dt>Founded 創業</dt><dd class={d.founded ? 'big' : undefined}>{d.founded ? <a href={u("/timeline/")}>{d.founded}</a> : '不明'}</dd></div>
     {d.closed && <div><dt>Closed 閉業</dt><dd class="big">{d.closed}</dd></div>}
     {d.founders.length > 0 && <div><dt>Founder 創業者</dt><dd>{d.founders.join('、')}</dd></div>}
-    {group && <div><dt>Group グループ</dt><dd><a href={`/groups/${group.id}/`}>{group.data.nameEn}</a></dd></div>}
+    {group && <div><dt>Group グループ</dt><dd><a href={u(`/groups/${group.id}/`)}>{group.data.nameEn}</a></dd></div>}
     {d.officialUrl && (
       <div>
         <dt>Website 公式サイト</dt>
@@ -111,7 +112,7 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
       <div class="section-head"><div><span class="eyebrow">More from {countryEn(d.country)}</span><h2>{countryLabel(d.country)}のほかのブランド</h2></div></div>
       <ul class="chips">
         {sameCountry.map((b) => (
-          <li><a href={`/brands/${b.id}/`}>{b.data.founded && <span class="y">{b.data.founded}</span>}{b.data.nameEn}</a></li>
+          <li><a href={u(`/brands/${b.id}/`)}>{b.data.founded && <span class="y">{b.data.founded}</span>}{b.data.nameEn}</a></li>
         ))}
       </ul>
     </>

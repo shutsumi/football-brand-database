@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import type { CollectionEntry } from 'astro:content';
 import Logo from './Logo.astro';
 import { countryLabel, decadeOf, brandNumbers } from '../lib/brands';
@@ -17,7 +18,7 @@ const no = await brandNumbers();
       data-founded={b.data.founded ?? ''}
       data-decade={b.data.founded ? decadeOf(b.data.founded) : ''}
     >
-      <a class="card" href={`/brands/${b.id}/`}>
+      <a class="card" href={u(`/brands/${b.id}/`)}>
         <div class="card-no">No.{no.get(b.id)}</div>
         <div class="logo-box"><Logo brand={b} /></div>
         <div class="card-name">{b.data.nameEn}</div>

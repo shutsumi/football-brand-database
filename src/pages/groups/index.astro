@@ -1,4 +1,5 @@
 ---
+import { u } from '../../lib/url';
 import Base from '../../layouts/Base.astro';
 import { getGroups, getBrands, groupYen } from '../../lib/brands';
 import { formatYen } from '../../lib/fx';
@@ -15,7 +16,7 @@ const rows = groups
   <ul class="index-list">
     {rows.map((r) => (
       <li>
-        <a href={`/groups/${r.g.id}/`}>
+        <a href={u(`/groups/${r.g.id}/`)}>
           <span>{r.g.data.nameEn}<br /><span class="muted">{r.names.join('、')}</span></span>
           <span class="muted">{r.yen ? formatYen(r.yen) : '売上非公開'}</span>
         </a>

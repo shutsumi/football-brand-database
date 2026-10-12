@@ -1,4 +1,5 @@
 ---
+import { u } from '../../lib/url';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import BrandGrid from '../../components/BrandGrid.astro';
@@ -25,7 +26,7 @@ const updated = `${d.updated.getFullYear()}年${d.updated.getMonth() + 1}月${d.
 
   <dl class="facts">
     <dt>国</dt>
-    <dd><a href={`/countries/${d.country}/`}>{countryLabel(d.country)}</a></dd>
+    <dd><a href={u(`/countries/${d.country}/`)}>{countryLabel(d.country)}</a></dd>
     <dt>売上高</dt>
     <dd>
       {d.revenue && yen

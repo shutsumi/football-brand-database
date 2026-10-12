@@ -2,13 +2,13 @@
 
 対象：`対象ブランド.txt` のブランド（約50）。**サッカー選手・フットサル選手だけ、1ブランド最大5人。**
 
-## 流れ（下書き → 内海さんの確認 → 反映）
+## 流れ（下書き → 運営者の確認 → 反映）
 
 1. **11日（定期タスク）**：各ブランドの契約選手を調べ、変更案を2つのファイルに書く
    - `proposals/YYYY-MM.json` … 反映用のデータ（形は `scripts/apply_athletes.py` の説明を参照）
    - `proposals/YYYY-MM.md` … 確認用。ブランドごとに「追加・継続・削除」と理由、出典URL
    - サイトのデータ（`src/content/brands/`）には**まだ触らない**
-2. **内海さんが確認**：md を見て OK／差し戻しを伝える
+2. **運営者が確認**：md を見て OK／差し戻しを伝える
 3. **反映**：OK が出たら
    ```
    python3 scripts/apply_athletes.py athletes/proposals/YYYY-MM.json
