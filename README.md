@@ -10,6 +10,9 @@ npm run dev     # http://localhost:4321
 npm run build   # dist/ に出力
 ```
 
+**公開先：https://shutsumi.github.io/football-brand-database/** （GitHub `shutsumi/football-brand-database`、公開リポジトリ）。
+`main` に push すると GitHub Actions がビルドして数分で反映される。手元の開発サーバーも `/football-brand-database/` の下で開く（`astro.config.mjs` の `base`）。サイト内リンクは `src/lib/url.ts` の `u()` を通すこと。
+
 **国（`src/lib/taxonomy.ts`）やデータの項目（`src/content.config.ts`）を変えたら、開発サーバーは `npm run dev:clean` で起動し直す。** 古いキャッシュのまま動いて、ブランドが読み込まれずトップページがエラーになる（本番ビルドは問題ない）。
 
 ## ブランドを追加する

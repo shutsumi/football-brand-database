@@ -14,6 +14,7 @@
    python3 scripts/apply_athletes.py athletes/proposals/YYYY-MM.json
    npm run build
    git add -A && git commit -m "契約選手をYYYY-MM時点に更新"
+   git push   # 公開サイトに反映（数分）
    ```
 
 ## 選手を載せる基準
