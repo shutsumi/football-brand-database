@@ -63,6 +63,7 @@ h2 { font-size: 16px; letter-spacing: .08em; color: var(--ink); margin: 40px 0 1
   font-size: clamp(44px, 12vw, 112px); line-height: .9; letter-spacing: -.01em; margin: 10px 0 18px;
 }
 .cover-title span { display: block; }
+.cover-title .accent { color: var(--accent); }
 .cover h1 { font-size: 15px; letter-spacing: .2em; font-weight: 700; margin: 0 0 4px; }
 .cover .lead { margin-bottom: 0; }
 .cover h1, .cover .lead { word-break: keep-all; overflow-wrap: anywhere; }
