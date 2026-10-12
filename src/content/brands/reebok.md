@@ -10,6 +10,12 @@ logo:
   author: "Reebok"
 sports:
   - football
+athletes:
+  - name: "ドゥシャン・ヴラホヴィッチ"
+    sport: football
+    country: "セルビア"
+    club: "ベシクタシュ"
+    source: "https://fashionunited.uk/news/fashion/reebok-returning-to-football-with-dusan-vlahovic-partnership/2026030986738"
 officialUrl: "https://www.reebok.com/"
 sources:
   - title: "Reebok - Wikipedia"
@@ -18,5 +24,5 @@ sources:
     url: "https://www.wikidata.org/wiki/Q466183"
   - title: "リーボック - ウィキペディア日本語版"
     url: "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%83%9C%E3%83%83%E3%82%AF"
-updated: 2026-10-04
+updated: 2026-10-12
 ---

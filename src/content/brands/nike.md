@@ -21,10 +21,21 @@ sports:
   - golf
   - american-football
 athletes:
-  - name: クリスティアーノ・ロナウド
+  - name: "クリスティアーノ・ロナウド"
     sport: football
-    country: ポルトガル
-    source: https://money.cnn.com/2016/11/09/news/companies/cristiano-ronaldo-nike-lifetime-contract/index.html
+    country: "ポルトガル"
+    club: "アル・ナスル"
+    source: "https://money.cnn.com/2016/11/09/news/companies/cristiano-ronaldo-nike-lifetime-contract/index.html"
+  - name: "ヴィニシウス・ジュニオール"
+    sport: football
+    country: "ブラジル"
+    club: "レアル・マドリード"
+    source: "https://www.footyheadlines.com/2023/11/vinicius-officially-signed-a-new-long-term-partnership-with-nike.html"
+  - name: "アーリング・ハーランド"
+    sport: football
+    country: "ノルウェー"
+    club: "マンチェスター・シティ"
+    source: "https://www.soccerbible.com/news/2023/03/erling-haaland-officially-signs-with-nike/"
 officialUrl: https://www.nike.com/
 sources:
   - title: Nike, Inc. - Wikipedia
@@ -35,7 +46,7 @@ sources:
     url: https://www.espn.com/nba/story/_/id/14314807/lebron-james-signs-life-deal-nike
   - title: Cristiano Ronaldo is the third athlete to sign Nike 'lifetime' deal - CNN Money
     url: https://money.cnn.com/2016/11/09/news/companies/cristiano-ronaldo-nike-lifetime-contract/index.html
-updated: 2026-10-04
+updated: 2026-10-12
 ---
 
 1964年1月25日、陸上コーチのビル・バウワーマンと、その教え子だったフィル・ナイトが「ブルーリボンスポーツ」として創業。オレゴン州ユージーンで、日本のオニツカタイガー（現アシックス）の靴を輸入販売する代理店から始まった。

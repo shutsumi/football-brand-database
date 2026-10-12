@@ -17,6 +17,11 @@ sports:
   - tennis
   - volleyball
   - basketball
+athletes:
+  - name: "冨安健洋"
+    sport: football
+    country: "日本"
+    source: "https://www.zaikei.co.jp/releases/3458946/"
 officialUrl: https://www.asics.com/
 sources:
   - title: アシックスの歴史 - アシックス 企業情報
@@ -27,7 +32,7 @@ sources:
     url: https://en.wikipedia.org/wiki/ASICS
   - title: Novak Djokovic pens global footwear deal with Asics - SportsPro
     url: https://www.sportspro.com/news/novak-djokovic-pens-global-footwear-deal-with-asics/
-updated: 2026-10-04
+updated: 2026-10-12
 ---
 
 1949年、鬼塚喜八郎が神戸市で鬼塚商会を創業し、同年「鬼塚株式会社」を設立した。資本金30万円、社員2名からのスタートだった。

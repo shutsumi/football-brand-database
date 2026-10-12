@@ -14,10 +14,11 @@ sports:
   - running
   - tennis
 athletes:
-  - name: キリアン・エムバペ
+  - name: "キリアン・エムバペ"
     sport: football
-    country: フランス
-    source: https://press.on-running.com/on-enters-football-alongside-kylian-mbappe
+    country: "フランス"
+    club: "レアル・マドリード"
+    source: "https://press.on-running.com/on-enters-football-alongside-kylian-mbappe"
 officialUrl: "https://www.on.com/"
 sources:
   - title: "On Enters Football alongside Kylian Mbappé - On（プレスリリース）"
@@ -28,5 +29,5 @@ sources:
     url: "https://en.wikipedia.org/wiki/On_(company)"
   - title: "On AG - Wikidata"
     url: "https://www.wikidata.org/wiki/Q43452713"
-updated: 2026-10-04
+updated: 2026-10-12
 ---

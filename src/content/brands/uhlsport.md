@@ -10,6 +10,19 @@ logo:
   author: "uhlsport GmbH"
 sports:
   - football
+athletes:
+  - name: "マイク・メニャン"
+    sport: football
+    country: "フランス"
+    source: "https://www.uhlsport.com/en/Specials/footballsummer2026/"
+  - name: "オリヴァー・バウマン"
+    sport: football
+    country: "ドイツ"
+    source: "https://www.uhlsport.com/en/Specials/footballsummer2026/"
+  - name: "マシュー・ライアン"
+    sport: football
+    country: "オーストラリア"
+    source: "https://www.uhlsport.com/en/Specials/footballsummer2026/"
 officialUrl: "https://uhlsport.group/en/"
 sources:
   - title: "Uhlsport - Wikipedia"
@@ -18,5 +31,5 @@ sources:
     url: "https://www.wikidata.org/wiki/Q265066"
   - title: "ウールシュポルト - ウィキペディア日本語版"
     url: "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%83%BC%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%9D%E3%83%AB%E3%83%88"
-updated: 2026-10-04
+updated: 2026-10-12
 ---
